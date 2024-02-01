@@ -164,7 +164,8 @@ class _MaterialsPageState extends State<MaterialsPage>
       "type": bean.value,
       ...pageRequestData(),
     }).http((value, error) {
-      final list = (value?["records"] as Iterable?)?.mapToList<Widget>((element) {
+      final list =
+          (value?["records"] as Iterable?)?.mapToList<Widget>((element) {
         final materialsBean = MaterialsBean.fromJson(element);
         final updateSignal = UpdateValueNotifier(materialsBean);
         return rebuild(
