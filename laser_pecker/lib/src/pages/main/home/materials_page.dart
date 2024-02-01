@@ -181,6 +181,7 @@ class _MaterialsPageState extends State<MaterialsPage>
           gridCount,
           mainAxisSpacing: kX,
           updateSignal: updateSignal,
+          edgePaddingBottom: 0,
         );
       });
       loadStatusDataEnd(status, list, error);
