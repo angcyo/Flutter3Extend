@@ -111,7 +111,7 @@ class UserModel extends ViewModel {
   }
 
   /// 更新用户信息
-  @http
+  @httpMask
   void fetchUserInfo() {
     //debugger();
     //"/user/gatTokenUserInfo"
@@ -123,7 +123,7 @@ class UserModel extends ViewModel {
   }
 
   /// 登录成功之后, 请求连接的设备列表
-  @http
+  @httpMask
   void fetchDeviceList() {
     //debugger();
     "/device/getByUserId".post().http((value, error) {
@@ -140,7 +140,7 @@ class UserModel extends ViewModel {
   /// 获取轮播图列表,
   /// 首次登录之后, 会请求一次
   /// 切换设备之后, 会请求一次
-  @http
+  @httpMask
   void fetchBannerList() {
     //debugger();
     "/banner/getList".post().http((value, error) {
