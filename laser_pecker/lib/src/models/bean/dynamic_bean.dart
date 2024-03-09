@@ -59,6 +59,7 @@
 /// star : 1
 /// views : 0
 /// location : null
+library;
 
 class DynamicBean {
   DynamicBean({

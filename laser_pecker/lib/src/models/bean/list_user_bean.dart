@@ -6,6 +6,7 @@
 /// nickname : "plwmttqh"
 /// postsNumber : 0
 /// fansNumber : 0
+library;
 
 class ListUserBean {
   ListUserBean({

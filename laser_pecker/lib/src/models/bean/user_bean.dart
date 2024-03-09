@@ -17,6 +17,7 @@
 /// isFriend : null
 /// deviceSecurityCode : "666666"
 /// isOldUser : 0
+library;
 
 class UserBean {
   UserBean({

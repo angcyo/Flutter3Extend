@@ -14,6 +14,7 @@
 /// isSequence : 0
 /// deviceType : 0
 /// bundleId : null
+library;
 
 class MaterialsBean {
   MaterialsBean({

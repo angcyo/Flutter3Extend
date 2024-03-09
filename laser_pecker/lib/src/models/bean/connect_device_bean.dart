@@ -4,6 +4,7 @@
 /// firmwareVersion : "8000"
 /// appVersion : "5.3.7-alpha8"
 /// createTime : "12/01/2023"
+library;
 
 class ConnectDeviceBean {
   ConnectDeviceBean({

@@ -2,6 +2,7 @@
 /// key : "wood"
 /// name : "木质"
 /// picture : "https://laserpecker-prod.oss-accelerate.aliyuncs.com/material/wood.png"
+library;
 
 class ChoicesCategoryBean {
   ChoicesCategoryBean({

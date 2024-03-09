@@ -2,6 +2,7 @@
 /// sourcePath : "https://laserpecker-prod.oss-accelerate.aliyuncs.com/banner/source/20231215-174943.jpg"
 /// jumpPath : "https://craftzone.laserpecker.net/"
 /// type : 0
+library;
 
 class BannerBean {
   BannerBean({

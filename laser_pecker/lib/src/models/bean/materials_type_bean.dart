@@ -2,6 +2,7 @@
 /// name : "节日"
 /// value : 10
 /// pictureType : "Svg"
+library;
 
 class MaterialsTypeBean {
   MaterialsTypeBean({

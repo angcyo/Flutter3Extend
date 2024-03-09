@@ -2,6 +2,7 @@
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
 /// @since 2023/12/30
 ///
+library;
 
 class AddDeviceBean {
   /// 设备名称

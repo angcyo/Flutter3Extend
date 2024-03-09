@@ -4,6 +4,7 @@
 /// directory : "L2"
 /// content : null
 /// subtitleId : 1
+library;
 
 class TutorialBean {
   TutorialBean({
