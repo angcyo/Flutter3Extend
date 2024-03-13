@@ -21,15 +21,15 @@ class _CommunityPageState extends State<CommunityPage>
   void initState() {
     tabItemList = [
       "动态".text().align(
-            alignment: Alignment.bottomCenter,
+            Alignment.bottomCenter,
             minHeight: kTabItemHeight,
           ),
       "教程".text().align(
-            alignment: Alignment.bottomCenter,
+            Alignment.bottomCenter,
             minHeight: kTabItemHeight,
           ),
       "精选".text().align(
-            alignment: Alignment.bottomCenter,
+            Alignment.bottomCenter,
             minHeight: kTabItemHeight,
           ),
     ];

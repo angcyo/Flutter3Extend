@@ -29,10 +29,9 @@ class AddDeviceTile extends StatelessWidget {
     final bean = this.bean;
     return [
       lpImageWidget(bean?.assetsKey, fit: BoxFit.contain),
-      bean?.name?.text().align(alignment: Alignment.topLeft),
+      bean?.name?.text().align(Alignment.topLeft),
       isSelected
-          ? lpSvgWidget(Assets.svg.squareChecked)
-              .align(alignment: Alignment.topRight)
+          ? lpSvgWidget(Assets.svg.squareChecked).align(Alignment.topRight)
           : null,
     ].stack(alignment: Alignment.center)!.container(
           color: isSelected

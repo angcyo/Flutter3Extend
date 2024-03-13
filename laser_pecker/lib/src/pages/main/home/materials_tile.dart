@@ -40,8 +40,7 @@ class MaterialsTile extends StatelessWidget {
       ),
       child,
       isSelected
-          ? lpSvgWidget(Assets.svg.circleChecked)
-              .align(alignment: Alignment.bottomRight)
+          ? lpSvgWidget(Assets.svg.circleChecked).align(Alignment.bottomRight)
           : null,
       if (isDebug && !isNullOrEmpty(sourcePath))
         sourcePath!
@@ -50,7 +49,7 @@ class MaterialsTile extends StatelessWidget {
             .container(
                 decoration: fillDecoration(fillColor: Colors.black12),
                 padding: const EdgeInsets.symmetric(horizontal: kM))
-            .align(alignment: Alignment.topRight),
+            .align(Alignment.topRight),
     ].stack(alignment: Alignment.center)!.container(
           color: isSelected
               ? globalTheme.themeWhiteColor.withOpacity(0.2)

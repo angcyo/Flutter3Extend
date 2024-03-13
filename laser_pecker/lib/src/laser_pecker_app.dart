@@ -1,4 +1,4 @@
-part of laser_pecker;
+part of '../laser_pecker.dart';
 
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>

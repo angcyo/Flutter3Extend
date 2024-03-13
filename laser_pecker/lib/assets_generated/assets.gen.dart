@@ -157,8 +157,14 @@ class $AssetsSvgGen {
   /// File path: assets/svg/note_count_ico.svg
   String get noteCountIco => 'assets/svg/note_count_ico.svg';
 
+  /// File path: assets/svg/redo.svg
+  String get redo => 'assets/svg/redo.svg';
+
   /// File path: assets/svg/square_checked.svg
   String get squareChecked => 'assets/svg/square_checked.svg';
+
+  /// File path: assets/svg/undo.svg
+  String get undo => 'assets/svg/undo.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -193,7 +199,9 @@ class $AssetsSvgGen {
         mineSetting,
         next,
         noteCountIco,
-        squareChecked
+        redo,
+        squareChecked,
+        undo
       ];
 }
 

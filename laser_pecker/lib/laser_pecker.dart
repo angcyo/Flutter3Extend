@@ -2,9 +2,9 @@ library laser_pecker;
 
 import 'dart:developer';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
+import 'package:flutter3_canvas/flutter3_canvas.dart';
 import 'package:laser_pecker/src/models/bean/bean_ex.dart';
 import 'package:laser_pecker/src/models/bean/connect_device_bean.dart';
 import 'package:laser_pecker/src/models/bean/user_bean.dart';
@@ -27,36 +27,22 @@ import 'src/pages/main/mine/list_user_info_tile.dart';
 
 export 'l10n/generated/l10n.dart';
 
+part 'src/design/canvas_widgets.dart';
 part 'src/laser_pecker_app.dart';
-
 part 'src/models/login_model.dart';
-
 part 'src/models/user_model.dart';
-
 part 'src/pages/login/login_page.dart';
-
 part 'src/pages/login/register_page.dart';
-
 part 'src/pages/lp_page_mixin.dart';
-
 part 'src/pages/main/community_page.dart';
-
 part 'src/pages/main/home_page.dart';
-
 part 'src/pages/main/main_page.dart';
-
 part 'src/pages/main/mine/attention_fans_page.dart';
-
 part 'src/pages/main/mine/attention_list_page.dart';
-
 part 'src/pages/main/mine/device_history_page.dart';
-
 part 'src/pages/main/mine/fans_list_page.dart';
-
 part 'src/pages/main/mine/user_info_page.dart';
-
 part 'src/pages/main/mine/user_setting_page.dart';
-
 part 'src/pages/main/mine_page.dart';
 
 /// [toast]
@@ -68,12 +54,16 @@ Widget lpSvgWidget(
   Color? tintColor,
   UiColorFilter? colorFilter,
   BoxFit fit = BoxFit.contain,
+  double? width,
+  double? height,
 }) =>
     loadAssetSvgWidget(
       key,
       package: "laser_pecker",
       tintColor: tintColor,
       colorFilter: colorFilter,
+      width: width,
+      height: height,
       fit: fit,
     );
 
@@ -83,7 +73,8 @@ Widget? lpImageWidget(
   BoxFit? fit,
   double? width,
   double? height,
-}) => loadAssetImageWidget(
+}) =>
+    loadAssetImageWidget(
       key,
       package: "laser_pecker",
       fit: fit,

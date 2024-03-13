@@ -67,9 +67,7 @@ class _RegisterPageState extends State<RegisterPage>
                     type: TranslationType.translationFade),
               )
                   .matchParent(matchHeight: false)
-                  .align(
-                    alignment: Alignment.bottomCenter,
-                  )
+                  .align(Alignment.bottomCenter)
                   .padding(
                       paddingLeft, paddingLeft, paddingRight, paddingRight))
           .rFill(),
