@@ -25,6 +25,12 @@ class CanvasIcoWidget extends StatelessWidget {
   /// 文本
   final Widget? text;
 
+  /// 提示信息
+  final Widget? tip;
+
+  /// 提示信息的位置
+  final AlignmentGeometry tipAlignment;
+
   /// 点击事件
   final GestureTapCallback? onTap;
 
@@ -32,10 +38,12 @@ class CanvasIcoWidget extends StatelessWidget {
     super.key,
     this.ico,
     this.text,
+    this.tip,
     this.color = Colors.black87,
     this.disableColor = Colors.black26,
     this.onTap,
     this.enable = true,
+    this.tipAlignment = Alignment.topRight,
   });
 
   @override
@@ -54,7 +62,9 @@ class CanvasIcoWidget extends StatelessWidget {
           .paddingSymmetric(vertical: 4, horizontal: 8)
           .colorFiltered(
               color: enable ? color : disableColor, blendMode: BlendMode.srcIn)
-          .click(onTap, enable),
+          //.click(onTap, enable)
+          .onTouchDetector(onTap: onTap, enableClick: enable)
+          .stackOf(tip, alignment: tipAlignment),
     );
   }
 }
@@ -95,6 +105,13 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
       CanvasIcoWidget(
         enable: widget.canvasDelegate.canvasUndoManager.canUndo(),
         ico: lpSvgWidget(Assets.svg.undo),
+        tip: isDebug
+            ? Text(
+                "${widget.canvasDelegate.canvasUndoManager.undoList.length}",
+                style: const TextStyle(fontSize: 9),
+              )
+            : null,
+        tipAlignment: Alignment.center,
         onTap: () {
           //debugger();
           widget.canvasDelegate.canvasUndoManager.undo();
@@ -103,6 +120,13 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
       CanvasIcoWidget(
         enable: widget.canvasDelegate.canvasUndoManager.canRedo(),
         ico: lpSvgWidget(Assets.svg.redo),
+        tip: isDebug
+            ? Text(
+                "${widget.canvasDelegate.canvasUndoManager.redoList.length}",
+                style: const TextStyle(fontSize: 9),
+              )
+            : null,
+        tipAlignment: Alignment.center,
         onTap: () {
           //debugger();
           widget.canvasDelegate.canvasUndoManager.redo();
