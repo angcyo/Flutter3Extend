@@ -26,10 +26,12 @@ class CanvasDesignLayoutWidget extends StatelessWidget {
             color: Colors.white,
             radius: kCanvasIcoItemRadiusSize,
           )
+          .paddingAll(8)
           .wrapContent(
               alignment: AlignmentDirectional
                   .bottomEnd) /*.rowOf(null, mainAxisAlignment: MainAxisAlignment.end)!*/,
       //属性操作
+      CanvasDesignBasicsLayoutWidget(canvasDelegate: canvasDelegate),
       //基础操作
       CanvasDesignBasicsLayoutWidget(canvasDelegate: canvasDelegate),
     ]
@@ -55,15 +57,21 @@ class _CanvasDesignBasicsLayoutWidgetState
   @override
   Widget build(BuildContext context) {
     return [
-      CanvasIconWidget(
-        icon: lpSvgWidget(Assets.svg.addPicture),
-        tooltip: '相册',
-        text: const Text('相册'),
-        onTap: () {
-          //widget.canvasDelegate?.undo();
-          toastInfo("相册");
-        },
-      ),
-    ].scroll()!;
+      AddPictureWidget(canvasDelegate: widget.canvasDelegate),
+      AddTextWidget(canvasDelegate: widget.canvasDelegate),
+      AddMaterialWidget(canvasDelegate: widget.canvasDelegate),
+      AddShapeWidget(canvasDelegate: widget.canvasDelegate),
+      AddGraffitiWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasEditTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasLayerTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
+    ]
+        .scroll()!
+        .container(color: const Color(0xFFF5F5F5))
+        .matchParent(matchHeight: false);
   }
 }

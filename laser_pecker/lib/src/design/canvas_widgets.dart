@@ -56,6 +56,8 @@ class CanvasIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const margin = EdgeInsets.symmetric(vertical: 4, horizontal: 4);
+    const padding = EdgeInsets.symmetric(vertical: 4, horizontal: 8);
     return IconStateWidget(
       icon: icon,
       text: text,
@@ -64,14 +66,14 @@ class CanvasIconWidget extends StatelessWidget {
       enable: enable,
       color: color,
       disableColor: disableColor,
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      padding: padding,
       onTap: onTap,
       tooltip: tooltip,
       pressedDecoration: lineaGradientDecoration(
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,
       ),
-    );
+    ).paddingInsets(margin);
   }
 }
 
