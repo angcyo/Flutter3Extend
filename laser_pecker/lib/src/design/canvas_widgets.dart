@@ -9,7 +9,10 @@ part of '../../laser_pecker.dart';
 const double kCanvasIcoItemRadiusSize = 8;
 
 /// Canvas 基础操作小部件
-class CanvasIcoWidget extends StatelessWidget {
+class CanvasIconWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDelegate? canvasDelegate;
+
   /// 正常颜色
   final Color? color;
 
@@ -20,7 +23,7 @@ class CanvasIcoWidget extends StatelessWidget {
   final bool enable;
 
   /// 图标
-  final Widget? ico;
+  final Widget? icon;
 
   /// 文本
   final Widget? text;
@@ -34,9 +37,10 @@ class CanvasIcoWidget extends StatelessWidget {
   /// 点击事件
   final GestureTapCallback? onTap;
 
-  const CanvasIcoWidget({
+  const CanvasIconWidget({
     super.key,
-    this.ico,
+    this.canvasDelegate,
+    this.icon,
     this.text,
     this.tip,
     this.color = Colors.black87,
@@ -48,23 +52,20 @@ class CanvasIcoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateDecorationWidget(
+    return IconStateWidget(
+      icon: icon,
+      text: text,
+      tip: tip,
+      tipAlignment: tipAlignment,
+      enable: enable,
+      color: color,
+      disableColor: disableColor,
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+      onTap: onTap,
       pressedDecoration: lineaGradientDecoration(
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,
       ),
-      enablePressedDecoration: enable,
-      child: [
-        ico,
-        text,
-      ]
-          .column()!
-          .paddingSymmetric(vertical: 4, horizontal: 8)
-          .colorFiltered(
-              color: enable ? color : disableColor, blendMode: BlendMode.srcIn)
-          //.click(onTap, enable)
-          .onTouchDetector(onTap: onTap, enableClick: enable)
-          .stackOf(tip, alignment: tipAlignment),
     );
   }
 }
@@ -102,9 +103,9 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
   @override
   Widget build(BuildContext context) {
     return [
-      CanvasIcoWidget(
+      CanvasIconWidget(
         enable: widget.canvasDelegate.canvasUndoManager.canUndo(),
-        ico: lpSvgWidget(Assets.svg.undo),
+        icon: lpSvgWidget(Assets.svg.undo),
         tip: isDebug
             ? Text(
                 "${widget.canvasDelegate.canvasUndoManager.undoList.length}",
@@ -117,9 +118,9 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
           widget.canvasDelegate.canvasUndoManager.undo();
         },
       ).tooltip("undo"),
-      CanvasIcoWidget(
+      CanvasIconWidget(
         enable: widget.canvasDelegate.canvasUndoManager.canRedo(),
-        ico: lpSvgWidget(Assets.svg.redo),
+        icon: lpSvgWidget(Assets.svg.redo),
         tip: isDebug
             ? Text(
                 "${widget.canvasDelegate.canvasUndoManager.redoList.length}",
