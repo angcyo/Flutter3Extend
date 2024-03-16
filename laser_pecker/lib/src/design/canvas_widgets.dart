@@ -1,4 +1,4 @@
-part of '../../laser_pecker.dart';
+part of 'canvas_design.dart';
 
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
@@ -37,12 +37,16 @@ class CanvasIconWidget extends StatelessWidget {
   /// 点击事件
   final GestureTapCallback? onTap;
 
+  /// 长按提示文本
+  final String? tooltip;
+
   const CanvasIconWidget({
     super.key,
     this.canvasDelegate,
     this.icon,
     this.text,
     this.tip,
+    this.tooltip,
     this.color = Colors.black87,
     this.disableColor = Colors.black26,
     this.onTap,
@@ -62,6 +66,7 @@ class CanvasIconWidget extends StatelessWidget {
       disableColor: disableColor,
       padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       onTap: onTap,
+      tooltip: tooltip,
       pressedDecoration: lineaGradientDecoration(
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,
@@ -72,9 +77,9 @@ class CanvasIconWidget extends StatelessWidget {
 
 /// 撤销回退小部件
 class CanvasUndoWidget extends StatefulWidget {
-  final CanvasDelegate canvasDelegate;
+  final CanvasDelegate? canvasDelegate;
 
-  const CanvasUndoWidget({super.key, required this.canvasDelegate});
+  const CanvasUndoWidget({super.key, this.canvasDelegate});
 
   @override
   State<CanvasUndoWidget> createState() => _CanvasUndoWidgetState();
@@ -91,48 +96,51 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
   @override
   void initState() {
     super.initState();
-    widget.canvasDelegate.addCanvasListener(canvasListener);
+    widget.canvasDelegate?.addCanvasListener(canvasListener);
   }
 
   @override
   void dispose() {
-    widget.canvasDelegate.removeCanvasListener(canvasListener);
+    widget.canvasDelegate?.removeCanvasListener(canvasListener);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    var undoManager = widget.canvasDelegate?.canvasUndoManager;
     return [
       CanvasIconWidget(
-        enable: widget.canvasDelegate.canvasUndoManager.canUndo(),
+        enable: undoManager?.canUndo() == true,
         icon: lpSvgWidget(Assets.svg.undo),
         tip: isDebug
             ? Text(
-                "${widget.canvasDelegate.canvasUndoManager.undoList.length}",
+                "${undoManager?.undoList.length}",
                 style: const TextStyle(fontSize: 9),
               )
             : null,
         tipAlignment: Alignment.center,
         onTap: () {
           //debugger();
-          widget.canvasDelegate.canvasUndoManager.undo();
+          undoManager?.undo();
         },
-      ).tooltip("undo"),
+        tooltip: "undo",
+      ),
       CanvasIconWidget(
-        enable: widget.canvasDelegate.canvasUndoManager.canRedo(),
+        enable: undoManager?.canRedo() == true,
         icon: lpSvgWidget(Assets.svg.redo),
         tip: isDebug
             ? Text(
-                "${widget.canvasDelegate.canvasUndoManager.redoList.length}",
+                "${undoManager?.redoList.length}",
                 style: const TextStyle(fontSize: 9),
               )
             : null,
         tipAlignment: Alignment.center,
         onTap: () {
           //debugger();
-          widget.canvasDelegate.canvasUndoManager.redo();
+          undoManager?.redo();
         },
-      ).tooltip("redo"),
-    ].row()!;
+        tooltip: "redo",
+      ),
+    ].row(mainAxisSize: MainAxisSize.min)!;
   }
 }

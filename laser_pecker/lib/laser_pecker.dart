@@ -1,10 +1,7 @@
 library laser_pecker;
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
-import 'package:flutter3_canvas/flutter3_canvas.dart';
 import 'package:laser_pecker/src/models/bean/bean_ex.dart';
 import 'package:laser_pecker/src/models/bean/connect_device_bean.dart';
 import 'package:laser_pecker/src/models/bean/user_bean.dart';
@@ -26,8 +23,8 @@ import 'src/pages/main/mine/like_tip_dialog.dart';
 import 'src/pages/main/mine/list_user_info_tile.dart';
 
 export 'l10n/generated/l10n.dart';
+export 'src/design/canvas_design.dart';
 
-part 'src/design/canvas_widgets.dart';
 part 'src/laser_pecker_app.dart';
 part 'src/models/login_model.dart';
 part 'src/models/user_model.dart';

@@ -67,8 +67,32 @@ class $AssetsSvgGen {
   /// File path: assets/svg/add_device.svg
   String get addDevice => 'assets/svg/add_device.svg';
 
+  /// File path: assets/svg/add_graffiti.svg
+  String get addGraffiti => 'assets/svg/add_graffiti.svg';
+
+  /// File path: assets/svg/add_material.svg
+  String get addMaterial => 'assets/svg/add_material.svg';
+
+  /// File path: assets/svg/add_picture.svg
+  String get addPicture => 'assets/svg/add_picture.svg';
+
+  /// File path: assets/svg/add_shape.svg
+  String get addShape => 'assets/svg/add_shape.svg';
+
+  /// File path: assets/svg/add_text.svg
+  String get addText => 'assets/svg/add_text.svg';
+
   /// File path: assets/svg/back.svg
   String get back => 'assets/svg/back.svg';
+
+  /// File path: assets/svg/canvas_basics_edit.svg
+  String get canvasBasicsEdit => 'assets/svg/canvas_basics_edit.svg';
+
+  /// File path: assets/svg/canvas_basics_layer.svg
+  String get canvasBasicsLayer => 'assets/svg/canvas_basics_layer.svg';
+
+  /// File path: assets/svg/canvas_basics_setting.svg
+  String get canvasBasicsSetting => 'assets/svg/canvas_basics_setting.svg';
 
   /// File path: assets/svg/circle_checked.svg
   String get circleChecked => 'assets/svg/circle_checked.svg';
@@ -169,7 +193,15 @@ class $AssetsSvgGen {
   /// List of all assets
   List<String> get values => [
         addDevice,
+        addGraffiti,
+        addMaterial,
+        addPicture,
+        addShape,
+        addText,
         back,
+        canvasBasicsEdit,
+        canvasBasicsLayer,
+        canvasBasicsSetting,
         circleChecked,
         collectCountFillIco,
         collectCountIco,
