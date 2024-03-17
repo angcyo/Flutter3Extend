@@ -40,6 +40,9 @@ class CanvasIconWidget extends StatelessWidget {
   /// 长按提示文本
   final String? tooltip;
 
+  /// 是否选中
+  final bool isSelected;
+
   const CanvasIconWidget({
     super.key,
     this.canvasDelegate,
@@ -47,6 +50,7 @@ class CanvasIconWidget extends StatelessWidget {
     this.text,
     this.tip,
     this.tooltip,
+    this.isSelected = false,
     this.color = Colors.black87,
     this.disableColor = Colors.black26,
     this.onTap,
@@ -73,6 +77,12 @@ class CanvasIconWidget extends StatelessWidget {
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,
       ),
+      selectedDecoration: isSelected
+          ? lineaGradientDecoration(
+              listOf(Colors.blueAccent, Colors.greenAccent),
+              borderRadius: kCanvasIcoItemRadiusSize,
+            )
+          : null,
     ).paddingInsets(margin);
   }
 }

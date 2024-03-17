@@ -73,9 +73,9 @@ class AddMaterialWidget extends StatelessWidget {
 /// 添加形状小部件
 class AddShapeWidget extends StatelessWidget {
   /// 核心对象
-  final CanvasDelegate? canvasDelegate;
+  final CanvasDesignLayoutController? layoutController;
 
-  const AddShapeWidget({super.key, this.canvasDelegate});
+  const AddShapeWidget({super.key, this.layoutController});
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +84,13 @@ class AddShapeWidget extends StatelessWidget {
       icon: lpSvgWidget(Assets.svg.addShape),
       tooltip: text,
       text: const Text(text),
+      isSelected:
+          layoutController?.isShowPropertyType(DesignShowPropertyType.shape) ==
+              true,
       onTap: () {
         //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        layoutController
+            ?.toggleShowPropertyTypeFrom(DesignShowPropertyType.shape);
       },
     );
   }
