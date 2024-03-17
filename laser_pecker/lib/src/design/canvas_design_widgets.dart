@@ -62,6 +62,11 @@ class _CanvasDesignBasicsLayoutWidgetState
       AddMaterialWidget(canvasDelegate: widget.canvasDelegate),
       AddShapeWidget(canvasDelegate: widget.canvasDelegate),
       AddGraffitiWidget(canvasDelegate: widget.canvasDelegate),
+      const Line(
+        indent: 8,
+        endIndent: 8,
+        axis: Axis.vertical,
+      ),
       CanvasEditTriggerWidget(canvasDelegate: widget.canvasDelegate),
       CanvasLayerTriggerWidget(canvasDelegate: widget.canvasDelegate),
       CanvasSettingTriggerWidget(canvasDelegate: widget.canvasDelegate),
