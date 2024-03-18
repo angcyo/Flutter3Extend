@@ -84,6 +84,12 @@ class $AssetsSvgGen {
   /// File path: assets/svg/canvas_basics_setting.svg
   String get canvasBasicsSetting => 'assets/svg/canvas_basics_setting.svg';
 
+  /// File path: assets/svg/canvas_flip_horizontal.svg
+  String get canvasFlipHorizontal => 'assets/svg/canvas_flip_horizontal.svg';
+
+  /// File path: assets/svg/canvas_flip_vertical.svg
+  String get canvasFlipVertical => 'assets/svg/canvas_flip_vertical.svg';
+
   /// File path: assets/svg/canvas_next.svg
   String get canvasNext => 'assets/svg/canvas_next.svg';
 
@@ -105,6 +111,8 @@ class $AssetsSvgGen {
         canvasBasicsEdit,
         canvasBasicsLayer,
         canvasBasicsSetting,
+        canvasFlipHorizontal,
+        canvasFlipVertical,
         canvasNext,
         canvasRedo,
         canvasUndo

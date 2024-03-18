@@ -134,7 +134,7 @@ class CanvasNumberInputWidget extends StatelessWidget {
         ),
       ),
       text,
-    ].column()!.paddingInsets(padding).tooltip(tooltip);
+    ].column()!.paddingInsets(margin).tooltip(tooltip);
   }
 }
 

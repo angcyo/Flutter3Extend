@@ -65,7 +65,7 @@ class CanvasBasicsEditWidget extends StatelessWidget {
               shape: BoxShape.circle)
           .material()
           .align(Alignment.topCenter)
-          .constrained(minHeight: 46),
+          .constrained(maxHeight: 45),
       CanvasNumberInputWidget(
         text: "H".text(),
         number: selectBounds?.height,
@@ -95,6 +95,24 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         number: elementSelectComponent?.paintProperty?.angle.jd,
         numberFormat: (value) => value == null ? null : "${value.toDigits()}°",
         tooltip: "旋转",
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.canvasFlipHorizontal),
+        tooltip: "水平",
+        text: const Text("水平"),
+        onTap: () {
+          //widget.canvasDelegate?.undo();
+          toastInfo("水平");
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.canvasFlipVertical),
+        tooltip: "垂直",
+        text: const Text("垂直"),
+        onTap: () {
+          //widget.canvasDelegate?.undo();
+          toastInfo("垂直");
+        },
       ),
     ].row(mainAxisSize: MainAxisSize.max)!;
   }

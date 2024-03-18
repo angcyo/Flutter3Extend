@@ -77,6 +77,9 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
   @override
   Widget build(BuildContext context) {
     final canvasDelegate = widget.canvasDelegate;
+
+    const height = 65.0;
+    const constraint = BoxConstraints(minHeight: height, maxHeight: height);
     return [
       //快捷操作
       [
@@ -99,11 +102,13 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
       SizeAnimationWidget(
         enableHeightAnimation: true,
         controller: layoutController.propertyLayoutController,
-        child: CanvasDesignPropertyLayoutWidget(
-            layoutController: layoutController),
+        child:
+            CanvasDesignPropertyLayoutWidget(layoutController: layoutController)
+                .constrainedBox(constraint),
       ),
       //控制操作
-      CanvasDesignBasicsLayoutWidget(layoutController: layoutController),
+      CanvasDesignBasicsLayoutWidget(layoutController: layoutController)
+          .constrainedBox(constraint),
     ]
         .column(crossAxisAlignment: CrossAxisAlignment.start)!
         .matchParent(matchHeight: false);
