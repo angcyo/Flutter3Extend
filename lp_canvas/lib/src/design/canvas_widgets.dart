@@ -7,6 +7,8 @@ part of 'canvas_design.dart';
 /// 画布相关的小部件
 
 const double kCanvasIcoItemRadiusSize = 8;
+const kCanvasItemMargin = EdgeInsets.symmetric(vertical: 4, horizontal: 4);
+const kCanvasItemPadding = EdgeInsets.symmetric(vertical: 4, horizontal: 8);
 
 /// Canvas 基础操作小部件
 class CanvasIconWidget extends StatelessWidget {
@@ -60,8 +62,8 @@ class CanvasIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const margin = EdgeInsets.symmetric(vertical: 4, horizontal: 4);
-    const padding = EdgeInsets.symmetric(vertical: 4, horizontal: 8);
+    const padding = kCanvasItemPadding;
+    const margin = kCanvasItemMargin;
     return IconStateWidget(
       icon: icon,
       text: text,
@@ -84,6 +86,55 @@ class CanvasIconWidget extends StatelessWidget {
             )
           : null,
     ).paddingInsets(margin);
+  }
+}
+
+/// 画布输入小部件
+class CanvasNumberInputWidget extends StatelessWidget {
+  /// 数值
+  final num? number;
+
+  /// 格式化
+  final NumFormat? numberFormat;
+
+  /// 文本
+  final Widget? text;
+
+  /// 长按提示文本
+  final String? tooltip;
+
+  const CanvasNumberInputWidget({
+    super.key,
+    this.number,
+    this.numberFormat,
+    this.text,
+    this.tooltip,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    const padding = kCanvasItemPadding;
+    const margin = kCanvasItemMargin;
+    return [
+      StateDecorationWidget(
+        decoration: fillDecoration(
+          fillColor: Colors.black12,
+          borderRadius: kCanvasIcoItemRadiusSize,
+        ),
+        pressedDecoration: fillDecoration(
+          fillColor: Colors.black38,
+          borderRadius: kCanvasIcoItemRadiusSize,
+        ),
+        enablePressedDecoration: number != null,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 60, minHeight: 26),
+          child: (numberFormat?.call(number) ?? number?.toString())
+              ?.text()
+              .align(AlignmentDirectional.center),
+        ),
+      ),
+      text,
+    ].column()!.paddingInsets(padding).tooltip(tooltip);
   }
 }
 

@@ -1,5 +1,7 @@
 library canvas_design;
 
+import 'dart:developer';
+
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
 /// @date 2024/03/16
@@ -17,3 +19,4 @@ part 'basics/basics_widgets.dart';
 part 'canvas_design_layout_controller.dart';
 part 'canvas_design_widgets.dart';
 part 'canvas_widgets.dart';
+part 'property/basics_edit.dart';

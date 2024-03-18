@@ -18,15 +18,9 @@ class CanvasDesignLayoutController {
   bool get isSelectedElement =>
       canvasDelegate?.canvasElementManager.isSelectedElement == true;
 
-  /// 选中的元素, 如果是单元素, 则返回选中的元素, 否则返回[ElementSelectComponent]
-  ElementPainter? get selectedElement {
-    final elementSelectComponent = canvasDelegate?.canvasElementManager
-        .canvasElementControlManager.elementSelectComponent;
-    if (elementSelectComponent?.children?.length == 1) {
-      return elementSelectComponent?.children?.first;
-    }
-    return elementSelectComponent;
-  }
+  /// 选中的元素
+  ElementPainter? get selectedElement =>
+      canvasDelegate?.canvasElementManager.selectedElement;
 
   //endregion ---元素---
 

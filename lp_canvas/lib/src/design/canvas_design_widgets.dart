@@ -28,24 +28,50 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
       CanvasDesignLayoutController(
           vsync: this, canvasDelegate: widget.canvasDelegate);
 
+  /// 监听画布的变化
+  late final CanvasListener listener = CanvasListener(
+      onCanvasElementPropertyChangedAction: (element, from, to, propertyType) {
+    updateState();
+  }, onCanvasElementSelectChangedAction: (selectComponent, from, to) {
+    if (isNullOrEmpty(to)) {
+      //取消选中
+      layoutController.hidePropertyLayoutWidget();
+    } else {
+      layoutController.toggleShowPropertyType(DesignShowPropertyType.edit);
+    }
+  });
+
   @override
   void initState() {
+    widget.canvasDelegate?.addCanvasListener(listener);
     layoutController.showPropertyTypeValue
         .addListener(_handleShowPropertyTypeValueChange);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.canvasDelegate?.removeCanvasListener(listener);
+    layoutController.showPropertyTypeValue
+        .removeListener(_handleShowPropertyTypeValueChange);
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant CanvasDesignLayoutWidget oldWidget) {
+    //debugger();
+    if (oldWidget.canvasDelegate != widget.canvasDelegate) {
+      debugger();
+      //oldWidget.canvasDelegate?.removeCanvasListener(listener);
+      //widget.canvasDelegate?.addCanvasListener(listener);
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   /// 显示的属性类型改变
   void _handleShowPropertyTypeValueChange() {
     //debugger();
     updateState();
-  }
-
-  @override
-  void dispose() {
-    layoutController.showPropertyTypeValue
-        .removeListener(_handleShowPropertyTypeValueChange);
-    super.dispose();
   }
 
   @override
@@ -63,14 +89,20 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
           )
           .paddingAll(8)
           .wrapContent(alignment: AlignmentDirectional.bottomEnd),
+      //渐变阴影
+      linearGradientWidget(
+        [Colors.transparent, Colors.black12],
+        height: 10,
+        gradientDirection: Axis.vertical,
+      ),
       //属性操作
       SizeAnimationWidget(
         enableHeightAnimation: true,
         controller: layoutController.propertyLayoutController,
-        child:
-            CanvasDesignBasicsLayoutWidget(layoutController: layoutController),
+        child: CanvasDesignPropertyLayoutWidget(
+            layoutController: layoutController),
       ),
-      //基础操作
+      //控制操作
       CanvasDesignBasicsLayoutWidget(layoutController: layoutController),
     ]
         .column(crossAxisAlignment: CrossAxisAlignment.start)!
@@ -78,35 +110,52 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
   }
 }
 
+/// 属性编辑操作小部件
+class CanvasDesignPropertyLayoutWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDesignLayoutController? layoutController;
+
+  const CanvasDesignPropertyLayoutWidget({super.key, this.layoutController});
+
+  @override
+  Widget build(BuildContext context) {
+    final canvasDelegate = layoutController?.canvasDelegate;
+    return [
+      const Line(
+        indent: 8,
+        endIndent: 8,
+        axis: Axis.vertical,
+      ),
+      CanvasBasicsEditWidget(layoutController: layoutController),
+    ]
+        .scroll()!
+        .container(color: const Color(0xFFFFFFFF))
+        .matchParent(matchHeight: false);
+  }
+}
+
 /// 画布底部的基础操作小部件
-class CanvasDesignBasicsLayoutWidget extends StatefulWidget {
+class CanvasDesignBasicsLayoutWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
   const CanvasDesignBasicsLayoutWidget({super.key, this.layoutController});
 
   @override
-  State<CanvasDesignBasicsLayoutWidget> createState() =>
-      _CanvasDesignBasicsLayoutWidgetState();
-}
-
-class _CanvasDesignBasicsLayoutWidgetState
-    extends State<CanvasDesignBasicsLayoutWidget> {
-  @override
   Widget build(BuildContext context) {
-    final canvasDelegate = widget.layoutController?.canvasDelegate;
+    final canvasDelegate = layoutController?.canvasDelegate;
     return [
       AddPictureWidget(canvasDelegate: canvasDelegate),
       AddTextWidget(canvasDelegate: canvasDelegate),
       AddMaterialWidget(canvasDelegate: canvasDelegate),
-      AddShapeWidget(layoutController: widget.layoutController),
+      AddShapeWidget(layoutController: layoutController),
       AddGraffitiWidget(canvasDelegate: canvasDelegate),
       const Line(
         indent: 8,
         endIndent: 8,
         axis: Axis.vertical,
       ),
-      CanvasEditTriggerWidget(layoutController: widget.layoutController),
+      CanvasEditTriggerWidget(layoutController: layoutController),
       CanvasLayerTriggerWidget(canvasDelegate: canvasDelegate),
       CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
       CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
