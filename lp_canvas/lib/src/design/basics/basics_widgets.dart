@@ -15,7 +15,7 @@ class CanvasEditTriggerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '编辑';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.canvasBasicsEdit),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasBasicsEdit),
       tooltip: text,
       text: const Text(text),
       isSelected:
@@ -42,7 +42,7 @@ class CanvasLayerTriggerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '图层';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.canvasBasicsLayer),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasBasicsLayer),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -64,7 +64,7 @@ class CanvasSettingTriggerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '设置';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.canvasBasicsSetting),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasBasicsSetting),
       tooltip: text,
       text: const Text(text),
       onTap: () {

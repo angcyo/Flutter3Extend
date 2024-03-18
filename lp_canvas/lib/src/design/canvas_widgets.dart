@@ -123,7 +123,7 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
     return [
       CanvasIconWidget(
         enable: undoManager?.canUndo() == true,
-        icon: lpSvgWidget(Assets.svg.undo),
+        icon: lpCanvasSvgWidget(Assets.svg.canvasUndo),
         tip: isDebug
             ? Text(
                 "${undoManager?.undoList.length}",
@@ -139,7 +139,7 @@ class _CanvasUndoWidgetState extends State<CanvasUndoWidget> {
       ),
       CanvasIconWidget(
         enable: undoManager?.canRedo() == true,
-        icon: lpSvgWidget(Assets.svg.redo),
+        icon: lpCanvasSvgWidget(Assets.svg.canvasRedo),
         tip: isDebug
             ? Text(
                 "${undoManager?.redoList.length}",

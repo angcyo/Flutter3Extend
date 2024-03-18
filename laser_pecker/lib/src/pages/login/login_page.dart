@@ -1,4 +1,4 @@
-part of laser_pecker;
+part of '../../../laser_pecker.dart';
 
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: globalConfig.appBarBuilder(
         context,
         this,
-        leading: lpSvgWidget(Assets.svg.back)
+        leading: lpCanvasBackWidget()
             .size(
               width: 24,
               height: 24,

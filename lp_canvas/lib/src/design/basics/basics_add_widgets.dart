@@ -15,7 +15,7 @@ class AddPictureWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '相册';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.addPicture),
+      icon: lpCanvasSvgWidget(Assets.svg.addPicture),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -37,7 +37,7 @@ class AddTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '文本';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.addText),
+      icon: lpCanvasSvgWidget(Assets.svg.addText),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -59,7 +59,7 @@ class AddMaterialWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '素材';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.addMaterial),
+      icon: lpCanvasSvgWidget(Assets.svg.addMaterial),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -81,7 +81,7 @@ class AddShapeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '形状';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.addShape),
+      icon: lpCanvasSvgWidget(Assets.svg.addShape),
       tooltip: text,
       text: const Text(text),
       isSelected:
@@ -107,7 +107,7 @@ class AddGraffitiWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const text = '涂鸦';
     return CanvasIconWidget(
-      icon: lpSvgWidget(Assets.svg.addGraffiti),
+      icon: lpCanvasSvgWidget(Assets.svg.addGraffiti),
       tooltip: text,
       text: const Text(text),
       onTap: () {

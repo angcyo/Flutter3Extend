@@ -9,6 +9,7 @@ import 'package:laser_pecker/src/pages/main/community/choices_page.dart';
 import 'package:laser_pecker/src/pages/main/community/dynamic_page.dart';
 import 'package:laser_pecker/src/pages/main/community/tutorial_page.dart';
 import 'package:laser_pecker/src/pages/main/mine/account_security_page.dart';
+import 'package:lp_canvas/lp_canvas.dart';
 
 import 'assets_generated/assets.gen.dart';
 import 'l10n/generated/l10n.dart';
@@ -22,8 +23,9 @@ import 'src/pages/main/mine/device_info_tile.dart';
 import 'src/pages/main/mine/like_tip_dialog.dart';
 import 'src/pages/main/mine/list_user_info_tile.dart';
 
+export 'package:lp_canvas/lp_canvas.dart';
+
 export 'l10n/generated/l10n.dart';
-export 'src/design/canvas_design.dart';
 
 part 'src/laser_pecker_app.dart';
 part 'src/models/login_model.dart';

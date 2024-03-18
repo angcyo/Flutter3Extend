@@ -48,10 +48,8 @@ class LaserPeckerAppState extends State<LaserPeckerApp> {
     appGlobalConfig.globalTheme = laserPeckerAppColor;
     appGlobalConfig.appBarLeadingBuilder = (context, state) {
       //debugger();
-      return lpSvgWidget(
-        Assets.svg.back,
-        tintColor: laserPeckerAppColor.appBarForegroundColor,
-      )
+      return lpCanvasBackWidget(
+              tintColor: laserPeckerAppColor.appBarForegroundColor)
           .size(
             width: 24,
             height: 24,

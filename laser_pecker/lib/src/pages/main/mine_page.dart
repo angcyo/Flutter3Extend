@@ -1,4 +1,4 @@
-part of laser_pecker;
+part of '../../../laser_pecker.dart';
 
 /// 我的
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
@@ -218,9 +218,8 @@ class _MinePageState extends State<MinePage>
                 ),
               )
               .expanded(),
-          [LPS.of(context).more.text(), lpSvgWidget(Assets.svg.next)]
-              .row()!
-              .inkWell(onTap: () {
+          [LPS.of(context).more.text(), lpCanvasNextWidget()].row()!.inkWell(
+              onTap: () {
             context.pushWidget(const DeviceHistoryPage());
           }),
         ].row()!.paddingAll(globalTheme.xh),

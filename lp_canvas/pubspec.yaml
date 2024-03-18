@@ -1,5 +1,5 @@
-name: laser_pecker
-description: 2023-11-20 LaserPeckerApp
+name: lp_canvas
+description: 2024-3-18 LaserPecker Canvas
 version: 0.0.1
 homepage: https://github.com/angcyo/Flutter3Extend
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -15,8 +15,8 @@ dependencies:
     path: ../../Flutter3Core/flutter3_app
   flutter3_web:
     path: ../../Flutter3Core/flutter3_web
-  lp_canvas:
-    path: ../lp_canvas
+  flutter3_canvas:
+    path: ../../Flutter3Core/flutter3_canvas
 
   # https://pub.dev/packages/flutter_gen
   # https://pub.dev/packages/build_runner
@@ -87,7 +87,7 @@ flutter:
 # flutter pub run intl_utils:generate
 flutter_intl:
   enabled: true
-  class_name: LPS
+  class_name: LPCanvas
   main_locale: zh
   arb_dir: lib/l10n
   output_dir: lib/l10n/generated
