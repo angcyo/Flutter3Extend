@@ -48,7 +48,7 @@ flutter:
   assets:
     - assets/svg/
     - assets/png/
-    - assets/json/
+    #- assets/json/
 
 # To add assets to your package, add an assets section, like this:
 # assets:
