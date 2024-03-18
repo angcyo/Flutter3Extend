@@ -132,7 +132,9 @@ class CanvasNumberInputWidget extends StatelessWidget {
               ?.text()
               .align(AlignmentDirectional.center),
         ),
-      ),
+      ).click(() {
+        showDialogWidget(context: context, widget: NumberKeyboardDialog());
+      }),
       text,
     ].column()!.paddingInsets(margin).tooltip(tooltip);
   }
