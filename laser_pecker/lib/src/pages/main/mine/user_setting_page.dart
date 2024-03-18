@@ -70,7 +70,7 @@ class UserSettingPage extends StatelessWidget
         textColor: globalConfig.globalTheme.errorColor,
         fillColor: globalConfig.globalTheme.themeWhiteColor,
         onTap: () async {
-          var confirm = await showDialogWidget(
+          final confirm = await showDialogWidget(
               context: context,
               widget: IosNormalDialog(
                 title: "退出账号",
