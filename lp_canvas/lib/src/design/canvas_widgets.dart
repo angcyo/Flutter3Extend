@@ -93,6 +93,8 @@ class CanvasIconWidget extends StatelessWidget {
 class CanvasNumberInputWidget extends StatelessWidget {
   /// 数值
   final num? number;
+  final num? minNumber;
+  final num? maxNumber;
 
   /// 格式化
   final NumFormat? numberFormat;
@@ -103,12 +105,22 @@ class CanvasNumberInputWidget extends StatelessWidget {
   /// 长按提示文本
   final String? tooltip;
 
+  /// 输入提示文本
+  final String? hintTooltip;
+
+  /// 数值输入回调
+  final NumberInputCallback? onNumberInput;
+
   const CanvasNumberInputWidget({
     super.key,
     this.number,
     this.numberFormat,
     this.text,
     this.tooltip,
+    this.hintTooltip,
+    this.minNumber,
+    this.maxNumber,
+    this.onNumberInput,
   });
 
   @override
@@ -132,8 +144,19 @@ class CanvasNumberInputWidget extends StatelessWidget {
               ?.text()
               .align(AlignmentDirectional.center),
         ),
-      ).click(() {
-        showDialogWidget(context: context, widget: NumberKeyboardDialog());
+      ).click(() async {
+        final value = await showDialogWidget(
+          context: context,
+          type: TranslationType.translation,
+          widget: NumberKeyboardDialog(
+            number: number,
+            minValue: minNumber,
+            maxValue: maxNumber,
+            hintText: hintTooltip ?? tooltip,
+          ),
+          barrierDismissible: false,
+        );
+        onNumberInput?.call(value);
       }),
       text,
     ].column()!.paddingInsets(margin).tooltip(tooltip);

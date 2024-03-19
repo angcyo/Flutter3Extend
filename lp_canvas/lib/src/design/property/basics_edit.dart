@@ -14,6 +14,9 @@ class CanvasBasicsEditWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final canvasDelegate = layoutController?.canvasDelegate;
+    final canvasElementControlManager =
+        canvasDelegate?.canvasElementManager.canvasElementControlManager;
+
     final axisUnit = canvasDelegate?.axisUnit;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
@@ -21,8 +24,8 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         canvasDelegate?.canvasElementManager.selectedElement;
     final elementProperty = selectedElement?.paintProperty;
 
-    final selectBounds = canvasDelegate
-        ?.canvasElementManager.canvasElementControlManager.selectBounds;
+    @dp
+    final selectBounds = canvasElementControlManager?.selectBounds;
 
     // 是否锁定比例
     final isLockRatio = elementSelectComponent?.isLockRatio == true;
@@ -37,6 +40,22 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             ? null
             : axisUnit?.formatFromDp(value, showSuffix: false),
         tooltip: "宽度",
+        onNumberInput: (value) {
+          if (value != null) {
+            //debugger();
+            @dp
+            final newWidth = IUnit.dp.toUnitFromUnit(axisUnit!, value);
+            final sx = newWidth / (selectBounds?.width ?? 1);
+            final double sy;
+            if (isLockRatio) {
+              sy = sx;
+            } else {
+              sy = 1;
+            }
+            canvasElementControlManager?.scaleElement(elementSelectComponent,
+                sx: sx, sy: sy);
+          }
+        },
       ),
       [
         const Line(
@@ -59,8 +78,7 @@ class CanvasBasicsEditWidget extends StatelessWidget {
           .stack(alignment: Alignment.center)!
           .ink(
               onTap: () {
-                canvasDelegate?.canvasElementManager.canvasElementControlManager
-                    .updateElementLockState();
+                canvasElementControlManager?.updateElementLockState();
               },
               shape: BoxShape.circle)
           .material()
@@ -73,6 +91,21 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             ? null
             : axisUnit?.formatFromDp(value, showSuffix: false),
         tooltip: "高度",
+        onNumberInput: (value) {
+          if (value != null) {
+            @dp
+            final newHeight = IUnit.dp.toUnitFromUnit(axisUnit!, value);
+            final sy = newHeight / (selectBounds?.height ?? 1);
+            final double sx;
+            if (isLockRatio) {
+              sx = sy;
+            } else {
+              sx = 1;
+            }
+            canvasElementControlManager?.scaleElement(elementSelectComponent,
+                sx: sx, sy: sy);
+          }
+        },
       ),
       CanvasNumberInputWidget(
         text: "X".text(),
