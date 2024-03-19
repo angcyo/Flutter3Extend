@@ -114,6 +114,15 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             ? null
             : axisUnit?.formatFromDp(value, showSuffix: false),
         tooltip: "X轴",
+        onNumberInput: (value) {
+          if (value != null) {
+            @dp
+            final oldX = selectBounds?.left ?? 0;
+            final newX = IUnit.dp.toUnitFromUnit(axisUnit!, value);
+            canvasElementControlManager
+                ?.translateElement(elementSelectComponent, dx: newX - oldX);
+          }
+        },
       ),
       CanvasNumberInputWidget(
         text: "Y".text(),
@@ -122,20 +131,35 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             ? null
             : axisUnit?.formatFromDp(value, showSuffix: false),
         tooltip: "Y轴",
+        onNumberInput: (value) {
+          if (value != null) {
+            @dp
+            final oldY = selectBounds?.top ?? 0;
+            final newY = IUnit.dp.toUnitFromUnit(axisUnit!, value);
+            canvasElementControlManager
+                ?.translateElement(elementSelectComponent, dy: newY - oldY);
+          }
+        },
       ),
       CanvasNumberInputWidget(
         text: "旋转".text(),
         number: elementSelectComponent?.paintProperty?.angle.jd,
         numberFormat: (value) => value == null ? null : "${value.toDigits()}°",
         tooltip: "旋转",
+        onNumberInput: (value) {
+          if (value != null) {
+            canvasElementControlManager?.rotateElement(
+                elementSelectComponent, value.hd);
+          }
+        },
       ),
       CanvasIconWidget(
         icon: lpCanvasSvgWidget(Assets.svg.canvasFlipHorizontal),
         tooltip: "水平",
         text: const Text("水平"),
         onTap: () {
-          //widget.canvasDelegate?.undo();
-          toastInfo("水平");
+          canvasElementControlManager?.flipElement(elementSelectComponent,
+              flipX: true);
         },
       ),
       CanvasIconWidget(
@@ -143,8 +167,8 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         tooltip: "垂直",
         text: const Text("垂直"),
         onTap: () {
-          //widget.canvasDelegate?.undo();
-          toastInfo("垂直");
+          canvasElementControlManager?.flipElement(elementSelectComponent,
+              flipY: true);
         },
       ),
     ].row(mainAxisSize: MainAxisSize.max)!;
