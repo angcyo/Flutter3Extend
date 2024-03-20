@@ -158,8 +158,10 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         tooltip: "水平",
         text: const Text("水平"),
         onTap: () {
-          canvasElementControlManager?.flipElement(elementSelectComponent,
-              flipX: true);
+          canvasElementControlManager?.flipElementWithScale(
+            elementSelectComponent,
+            flipX: true,
+          );
         },
       ),
       CanvasIconWidget(
@@ -167,8 +169,10 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         tooltip: "垂直",
         text: const Text("垂直"),
         onTap: () {
-          canvasElementControlManager
-              ?.flipElementWithScale(elementSelectComponent, flipY: true);
+          canvasElementControlManager?.flipElementWithScale(
+            elementSelectComponent,
+            flipY: true,
+          );
         },
       ),
     ].row(mainAxisSize: MainAxisSize.max)!;
