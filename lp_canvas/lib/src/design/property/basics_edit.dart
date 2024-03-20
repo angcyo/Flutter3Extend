@@ -167,8 +167,8 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         tooltip: "垂直",
         text: const Text("垂直"),
         onTap: () {
-          canvasElementControlManager?.flipElement(elementSelectComponent,
-              flipY: true);
+          canvasElementControlManager
+              ?.flipElementWithScale(elementSelectComponent, flipY: true);
         },
       ),
     ].row(mainAxisSize: MainAxisSize.max)!;
