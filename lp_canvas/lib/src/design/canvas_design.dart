@@ -19,9 +19,10 @@ part 'basics/basics_widgets.dart';
 part 'canvas_design_layout_controller.dart';
 part 'canvas_design_widgets.dart';
 part 'canvas_widgets.dart';
+part 'property/align_dialog.dart';
+part 'property/average_dialog.dart';
 part 'property/basics_edit.dart';
 part 'property/property_widgets.dart';
-part 'property/align_dialog.dart';
 
 /// 画布设计中的竖线
 const canvasDesignVerticalLine = Line(

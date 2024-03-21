@@ -135,11 +135,15 @@ class AverageWidget extends StatelessWidget {
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.canvasAverage),
       tooltip: text,
-      enable: selectedElementCount > 2,
+      enable: selectedElementCount >= 2,
       text: const Text(text),
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        showDialogWidget(
+          context: context,
+          widget: AverageDialog(canvasDelegate),
+          /*barrierColor: null,*/
+          type: TranslationType.translation,
+        );
       },
     );
   }

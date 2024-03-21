@@ -4,15 +4,15 @@ part of '../canvas_design.dart';
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
 /// @date 2024/03/21
 ///
-/// 对齐对话框
-class AlignDialog extends StatelessWidget {
+/// 均分对话框
+class AverageDialog extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
   /// 点击后, 关闭对话框
   final bool closeAfterTap;
 
-  const AlignDialog(
+  const AverageDialog(
     this.canvasDelegate, {
     super.key,
     this.closeAfterTap = true,
@@ -20,69 +20,55 @@ class AlignDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElementCount =
+        canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
     return [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignLeft),
-        text: "左对齐",
+        text: "水平均分",
+        enable: selectedElementCount > 2,
         onTap: () {
-          canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.left);
+          canvasDelegate?.canvasElementManager.averageElement(
+              elementSelectComponent, CanvasAverageType.horizontal);
           checkClose(context);
         },
       ),
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignTop),
-        text: "顶对齐",
+        text: "垂直均分",
+        enable: selectedElementCount > 2,
         onTap: () {
-          canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.top);
+          canvasDelegate?.canvasElementManager.averageElement(
+              elementSelectComponent, CanvasAverageType.vertical);
           checkClose(context);
         },
       ),
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignRight),
-        text: "右对齐",
+        text: "等宽",
         onTap: () {
           canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.right);
+              .averageElement(elementSelectComponent, CanvasAverageType.width);
           checkClose(context);
         },
       ),
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignBottom),
-        text: "底对齐",
+        text: "等高",
         onTap: () {
           canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.bottom);
+              .averageElement(elementSelectComponent, CanvasAverageType.height);
           checkClose(context);
         },
       ),
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignHorizontal),
-        text: "水平居中",
-        onTap: () {
-          canvasDelegate?.canvasElementManager.alignElement(
-              elementSelectComponent, CanvasAlignType.horizontalCenter);
-          checkClose(context);
-        },
-      ),
-      IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignVertical),
-        text: "垂直居中",
+        text: "等大小",
         onTap: () {
           canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.verticalCenter);
-          checkClose(context);
-        },
-      ),
-      IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignCenter),
-        text: "居中",
-        onTap: () {
-          canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.center);
+              .averageElement(elementSelectComponent, CanvasAverageType.size);
           checkClose(context);
         },
       ),
