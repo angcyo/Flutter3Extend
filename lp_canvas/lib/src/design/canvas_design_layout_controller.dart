@@ -38,7 +38,7 @@ class CanvasDesignLayoutController {
   );
 
   /// 属性布局是否显示了
-  bool get isShowPropertyLayout => propertyLayoutController.value > 0;
+  bool isShowPropertyLayout = false;
 
   /// 是否显示了指定类型的属性布局
   bool isShowPropertyType(DesignShowPropertyType type) =>
@@ -88,12 +88,16 @@ class CanvasDesignLayoutController {
   }
 
   /// 显示属性控制小部件布局
+  @api
   void showPropertyLayoutWidget() {
+    isShowPropertyLayout = true;
     propertyLayoutController.forward();
   }
 
   /// 隐藏属性控制小部件布局
+  @api
   void hidePropertyLayoutWidget() {
+    isShowPropertyLayout = false;
     propertyLayoutController.reverse();
     showPropertyTypeValue.value = DesignShowPropertyType.none;
   }
