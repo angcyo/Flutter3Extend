@@ -107,8 +107,12 @@ class AlignWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        showDialogWidget(
+          context: context,
+          widget: AlignDialog(canvasDelegate),
+          /*barrierColor: null,*/
+          type: TranslationType.translation,
+        );
       },
     );
   }
