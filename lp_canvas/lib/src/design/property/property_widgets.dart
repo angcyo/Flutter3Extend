@@ -101,11 +101,14 @@ class AlignWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElementCount =
+        canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     const text = '对齐';
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.canvasAlign),
       tooltip: text,
       text: const Text(text),
+      enable: selectedElementCount > 1,
       onTap: () {
         showDialogWidget(
           context: context,
@@ -126,10 +129,13 @@ class AverageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElementCount =
+        canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     const text = '均分';
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.canvasAverage),
       tooltip: text,
+      enable: selectedElementCount > 2,
       text: const Text(text),
       onTap: () {
         //widget.canvasDelegate?.undo();

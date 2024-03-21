@@ -13,22 +13,65 @@ class AlignDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String text = "左对齐" ;
+    final elementSelectComponent =
+        canvasDelegate?.canvasElementManager.elementSelectComponent;
     return [
       IconTextTile(
-        icon: Icons.align_horizontal_left,
-        iconWidget: null,
-        text: text ,
-      ),
-      /*CanvasIconWidget(
-        icon: lpCanvasSvgWidget(Assets.svg.canvasAverage),
-        tooltip: text,
-        text: const Text(text),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignLeft),
+        text: "左对齐",
         onTap: () {
-          //widget.canvasDelegate?.undo();
-          toastInfo(text);
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.left);
         },
-      ),*/
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignTop),
+        text: "顶对齐",
+        onTap: () {
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.top);
+        },
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignRight),
+        text: "右对齐",
+        onTap: () {
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.right);
+        },
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignBottom),
+        text: "底对齐",
+        onTap: () {
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.bottom);
+        },
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignHorizontal),
+        text: "水平居中",
+        onTap: () {
+          canvasDelegate?.canvasElementManager.alignElement(
+              elementSelectComponent, CanvasAlign.centerHorizontal);
+        },
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignVertical),
+        text: "垂直居中",
+        onTap: () {
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.centerVertical);
+        },
+      ),
+      IconTextTile(
+        iconWidget: lpCanvasSvgWidget(Assets.svg.alignCenter),
+        text: "居中",
+        onTap: () {
+          canvasDelegate?.canvasElementManager
+              .alignElement(elementSelectComponent, CanvasAlign.center);
+        },
+      ),
     ]
         .column()!
         .container(color: Colors.white)
