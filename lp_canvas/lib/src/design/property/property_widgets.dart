@@ -2,20 +2,20 @@ part of '../canvas_design.dart';
 
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
-/// @date 2024/03/16
+/// @date 2024/03/21
 ///
-/// 添加图片小部件
-class AddPictureWidget extends StatelessWidget {
+
+class ArrangeWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const AddPictureWidget(this.canvasDelegate, {super.key});
+  const ArrangeWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    const text = '相册';
+    const text = '排列';
     return CanvasIconWidget(
-      icon: lpCanvasSvgWidget(Assets.svg.addPicture),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasArrange),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -26,18 +26,17 @@ class AddPictureWidget extends StatelessWidget {
   }
 }
 
-/// 添加文本小部件
-class AddTextWidget extends StatelessWidget {
+class RasterizeWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const AddTextWidget(this.canvasDelegate, {super.key});
+  const RasterizeWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    const text = '文本';
+    const text = '栅格化';
     return CanvasIconWidget(
-      icon: lpCanvasSvgWidget(Assets.svg.addText),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasRasterize),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -48,18 +47,17 @@ class AddTextWidget extends StatelessWidget {
   }
 }
 
-/// 添加素材小部件
-class AddMaterialWidget extends StatelessWidget {
+class GroupWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const AddMaterialWidget(this.canvasDelegate, {super.key});
+  const GroupWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    const text = '素材';
+    const text = '编组';
     return CanvasIconWidget(
-      icon: lpCanvasSvgWidget(Assets.svg.addMaterial),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasGroup),
       tooltip: text,
       text: const Text(text),
       onTap: () {
@@ -70,44 +68,59 @@ class AddMaterialWidget extends StatelessWidget {
   }
 }
 
-/// 添加形状小部件
-class AddShapeWidget extends StatelessWidget {
+class UngroupWidget extends StatelessWidget {
   /// 核心对象
-  final CanvasDesignLayoutController? layoutController;
+  final CanvasDelegate? canvasDelegate;
 
-  const AddShapeWidget(this.layoutController, {super.key});
+  const UngroupWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    const text = '形状';
+    const text = '解组';
     return CanvasIconWidget(
-      icon: lpCanvasSvgWidget(Assets.svg.addShape),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasUngroup),
       tooltip: text,
       text: const Text(text),
-      isSelected:
-          layoutController?.isShowPropertyType(DesignShowPropertyType.shape) ==
-              true,
       onTap: () {
         //widget.canvasDelegate?.undo();
-        layoutController
-            ?.toggleShowPropertyTypeFrom(DesignShowPropertyType.shape);
+        toastInfo(text);
       },
     );
   }
 }
 
-/// 添加涂鸦小部件
-class AddGraffitiWidget extends StatelessWidget {
+class AlignWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const AddGraffitiWidget(this.canvasDelegate, {super.key});
+  const AlignWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    const text = '涂鸦';
+    const text = '对齐';
     return CanvasIconWidget(
-      icon: lpCanvasSvgWidget(Assets.svg.addGraffiti),
+      icon: lpCanvasSvgWidget(Assets.svg.canvasAlign),
+      tooltip: text,
+      text: const Text(text),
+      onTap: () {
+        //widget.canvasDelegate?.undo();
+        toastInfo(text);
+      },
+    );
+  }
+}
+
+class AverageWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDelegate? canvasDelegate;
+
+  const AverageWidget(this.canvasDelegate, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const text = '均分';
+    return CanvasIconWidget(
+      icon: lpCanvasSvgWidget(Assets.svg.canvasAverage),
       tooltip: text,
       text: const Text(text),
       onTap: () {

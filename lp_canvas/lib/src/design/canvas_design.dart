@@ -20,3 +20,14 @@ part 'canvas_design_layout_controller.dart';
 part 'canvas_design_widgets.dart';
 part 'canvas_widgets.dart';
 part 'property/basics_edit.dart';
+part 'property/property_widgets.dart';
+
+/// 画布设计中的竖线
+const canvasDesignVerticalLine = Line(
+  indent: 8,
+  endIndent: 8,
+  axis: Axis.vertical,
+);
+
+/// 默认的设计图标大小
+const canvasDesignIconSize = 25.0;

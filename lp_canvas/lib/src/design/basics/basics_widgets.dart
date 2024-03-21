@@ -9,7 +9,7 @@ class CanvasEditTriggerWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
-  const CanvasEditTriggerWidget({super.key, this.layoutController});
+  const CanvasEditTriggerWidget(this.layoutController, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class CanvasLayerTriggerWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const CanvasLayerTriggerWidget({super.key, this.canvasDelegate});
+  const CanvasLayerTriggerWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class CanvasSettingTriggerWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
-  const CanvasSettingTriggerWidget({super.key, this.canvasDelegate});
+  const CanvasSettingTriggerWidget(this.canvasDelegate, {super.key});
 
   @override
   Widget build(BuildContext context) {

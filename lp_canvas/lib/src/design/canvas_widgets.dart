@@ -167,7 +167,7 @@ class CanvasNumberInputWidget extends StatelessWidget {
 class CanvasUndoWidget extends StatefulWidget {
   final CanvasDelegate? canvasDelegate;
 
-  const CanvasUndoWidget({super.key, this.canvasDelegate});
+  const CanvasUndoWidget(this.canvasDelegate, {super.key});
 
   @override
   State<CanvasUndoWidget> createState() => _CanvasUndoWidgetState();

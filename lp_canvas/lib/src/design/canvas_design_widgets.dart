@@ -83,7 +83,7 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
     return [
       //快捷操作
       [
-        CanvasUndoWidget(canvasDelegate: canvasDelegate),
+        CanvasUndoWidget(canvasDelegate),
       ]
           .row(mainAxisSize: MainAxisSize.min)!
           .radiusShadow(
@@ -125,12 +125,12 @@ class CanvasDesignPropertyLayoutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final canvasDelegate = layoutController?.canvasDelegate;
+    final isSelectedGroupElement =
+        canvasDelegate?.canvasElementManager.isSelectedGroupElement == true;
     return [
-      const Line(
-        indent: 8,
-        endIndent: 8,
-        axis: Axis.vertical,
-      ),
+      if (isSelectedGroupElement)
+        CanvasGroupBasicsEditWidget(layoutController: layoutController),
+      canvasDesignVerticalLine,
       CanvasBasicsEditWidget(layoutController: layoutController),
     ]
         .scroll()!
@@ -150,23 +150,19 @@ class CanvasDesignBasicsLayoutWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final canvasDelegate = layoutController?.canvasDelegate;
     return [
-      AddPictureWidget(canvasDelegate: canvasDelegate),
-      AddTextWidget(canvasDelegate: canvasDelegate),
-      AddMaterialWidget(canvasDelegate: canvasDelegate),
-      AddShapeWidget(layoutController: layoutController),
-      AddGraffitiWidget(canvasDelegate: canvasDelegate),
-      const Line(
-        indent: 8,
-        endIndent: 8,
-        axis: Axis.vertical,
-      ),
-      CanvasEditTriggerWidget(layoutController: layoutController),
-      CanvasLayerTriggerWidget(canvasDelegate: canvasDelegate),
-      CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
-      CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
-      CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
-      CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
-      CanvasSettingTriggerWidget(canvasDelegate: canvasDelegate),
+      AddPictureWidget(canvasDelegate),
+      AddTextWidget(canvasDelegate),
+      AddMaterialWidget(canvasDelegate),
+      AddShapeWidget(layoutController),
+      AddGraffitiWidget(canvasDelegate),
+      canvasDesignVerticalLine,
+      CanvasEditTriggerWidget(layoutController),
+      CanvasLayerTriggerWidget(canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate),
+      CanvasSettingTriggerWidget(canvasDelegate),
     ]
         .scroll()!
         .container(color: const Color(0xFFF5F5F5))

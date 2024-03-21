@@ -69,8 +69,56 @@ class $AssetsSvgGen {
   /// File path: assets/svg/add_text.svg
   String get addText => 'assets/svg/add_text.svg';
 
+  /// File path: assets/svg/align_bottom.svg
+  String get alignBottom => 'assets/svg/align_bottom.svg';
+
+  /// File path: assets/svg/align_center.svg
+  String get alignCenter => 'assets/svg/align_center.svg';
+
+  /// File path: assets/svg/align_horizontal.svg
+  String get alignHorizontal => 'assets/svg/align_horizontal.svg';
+
+  /// File path: assets/svg/align_left.svg
+  String get alignLeft => 'assets/svg/align_left.svg';
+
+  /// File path: assets/svg/align_right.svg
+  String get alignRight => 'assets/svg/align_right.svg';
+
+  /// File path: assets/svg/align_top.svg
+  String get alignTop => 'assets/svg/align_top.svg';
+
+  /// File path: assets/svg/align_vertical.svg
+  String get alignVertical => 'assets/svg/align_vertical.svg';
+
+  /// File path: assets/svg/arrange_bottom.svg
+  String get arrangeBottom => 'assets/svg/arrange_bottom.svg';
+
+  /// File path: assets/svg/arrange_down.svg
+  String get arrangeDown => 'assets/svg/arrange_down.svg';
+
+  /// File path: assets/svg/arrange_top.svg
+  String get arrangeTop => 'assets/svg/arrange_top.svg';
+
+  /// File path: assets/svg/arrange_up.svg
+  String get arrangeUp => 'assets/svg/arrange_up.svg';
+
+  /// File path: assets/svg/average_horizontal.svg
+  String get averageHorizontal => 'assets/svg/average_horizontal.svg';
+
+  /// File path: assets/svg/average_vertical.svg
+  String get averageVertical => 'assets/svg/average_vertical.svg';
+
   /// File path: assets/svg/canvas_add.svg
   String get canvasAdd => 'assets/svg/canvas_add.svg';
+
+  /// File path: assets/svg/canvas_align.svg
+  String get canvasAlign => 'assets/svg/canvas_align.svg';
+
+  /// File path: assets/svg/canvas_arrange.svg
+  String get canvasArrange => 'assets/svg/canvas_arrange.svg';
+
+  /// File path: assets/svg/canvas_average.svg
+  String get canvasAverage => 'assets/svg/canvas_average.svg';
 
   /// File path: assets/svg/canvas_back.svg
   String get canvasBack => 'assets/svg/canvas_back.svg';
@@ -90,14 +138,23 @@ class $AssetsSvgGen {
   /// File path: assets/svg/canvas_flip_vertical.svg
   String get canvasFlipVertical => 'assets/svg/canvas_flip_vertical.svg';
 
+  /// File path: assets/svg/canvas_group.svg
+  String get canvasGroup => 'assets/svg/canvas_group.svg';
+
   /// File path: assets/svg/canvas_next.svg
   String get canvasNext => 'assets/svg/canvas_next.svg';
+
+  /// File path: assets/svg/canvas_rasterize.svg
+  String get canvasRasterize => 'assets/svg/canvas_rasterize.svg';
 
   /// File path: assets/svg/canvas_redo.svg
   String get canvasRedo => 'assets/svg/canvas_redo.svg';
 
   /// File path: assets/svg/canvas_undo.svg
   String get canvasUndo => 'assets/svg/canvas_undo.svg';
+
+  /// File path: assets/svg/canvas_ungroup.svg
+  String get canvasUngroup => 'assets/svg/canvas_ungroup.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -106,16 +163,35 @@ class $AssetsSvgGen {
         addPicture,
         addShape,
         addText,
+        alignBottom,
+        alignCenter,
+        alignHorizontal,
+        alignLeft,
+        alignRight,
+        alignTop,
+        alignVertical,
+        arrangeBottom,
+        arrangeDown,
+        arrangeTop,
+        arrangeUp,
+        averageHorizontal,
+        averageVertical,
         canvasAdd,
+        canvasAlign,
+        canvasArrange,
+        canvasAverage,
         canvasBack,
         canvasBasicsEdit,
         canvasBasicsLayer,
         canvasBasicsSetting,
         canvasFlipHorizontal,
         canvasFlipVertical,
+        canvasGroup,
         canvasNext,
+        canvasRasterize,
         canvasRedo,
-        canvasUndo
+        canvasUndo,
+        canvasUngroup
       ];
 }
 

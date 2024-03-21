@@ -2,6 +2,7 @@ library lp_canvas;
 
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
+import 'package:lp_canvas/src/design/canvas_design.dart';
 
 import 'assets_generated/assets.gen.dart';
 
@@ -50,8 +51,8 @@ Widget lpCanvasSvgWidget(
   Color? tintColor,
   UiColorFilter? colorFilter,
   BoxFit fit = BoxFit.contain,
-  double? width,
-  double? height,
+  double? width = canvasDesignIconSize,
+  double? height = canvasDesignIconSize,
 }) =>
     loadAssetSvgWidget(
       key,

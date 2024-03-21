@@ -33,6 +33,9 @@ class CanvasBasicsEditWidget extends StatelessWidget {
     //debugger();
     const svgSize = 25.0;
     return [
+      ArrangeWidget(canvasDelegate),
+      RasterizeWidget(canvasDelegate),
+      canvasDesignVerticalLine,
       CanvasNumberInputWidget(
         text: "W".text(),
         number: selectBounds?.width,
@@ -175,6 +178,26 @@ class CanvasBasicsEditWidget extends StatelessWidget {
           );
         },
       ),
+    ].row(mainAxisSize: MainAxisSize.max)!;
+  }
+}
+
+/// 一组元素基础编辑
+class CanvasGroupBasicsEditWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDesignLayoutController? layoutController;
+
+  const CanvasGroupBasicsEditWidget({super.key, this.layoutController});
+
+  @override
+  Widget build(BuildContext context) {
+    final canvasDelegate = layoutController?.canvasDelegate;
+    return [
+      GroupWidget(canvasDelegate),
+      UngroupWidget(canvasDelegate),
+      canvasDesignVerticalLine,
+      AlignWidget(canvasDelegate),
+      AverageWidget(canvasDelegate),
     ].row(mainAxisSize: MainAxisSize.max)!;
   }
 }
