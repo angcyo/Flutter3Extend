@@ -60,9 +60,11 @@ class GroupWidget extends StatelessWidget {
       icon: lpCanvasSvgWidget(Assets.svg.canvasGroup),
       tooltip: text,
       text: const Text(text),
+      enable:
+          canvasDelegate?.canvasElementManager.isSelectedGroupPainter == false,
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        canvasDelegate?.canvasElementManager.groupElement(canvasDelegate
+            ?.canvasElementManager.elementSelectComponent?.children);
       },
     );
   }
@@ -81,9 +83,11 @@ class UngroupWidget extends StatelessWidget {
       icon: lpCanvasSvgWidget(Assets.svg.canvasUngroup),
       tooltip: text,
       text: const Text(text),
+      enable:
+          canvasDelegate?.canvasElementManager.isSelectedGroupPainter == true,
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        canvasDelegate?.canvasElementManager.ungroupElement(
+            canvasDelegate?.canvasElementManager.selectedElement);
       },
     );
   }
