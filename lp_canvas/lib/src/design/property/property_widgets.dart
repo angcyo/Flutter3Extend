@@ -40,9 +40,18 @@ class RasterizeWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () async {
-        final image = await CanvasDelegate.rasterizeElement(
-            canvasDelegate?.canvasElementManager.elementSelectComponent);
-        debugger();
+        final elementSelectComponent =
+            canvasDelegate?.canvasElementManager.elementSelectComponent;
+        final image =
+            await CanvasDelegate.rasterizeElement(elementSelectComponent);
+        if (image != null) {
+          final imageElementPainter = ImageElementPainter();
+          imageElementPainter.initFromImage(image);
+          imageElementPainter.updateBoundsTo(
+              elementSelectComponent?.paintProperty?.getBounds(true));
+          canvasDelegate?.canvasElementManager
+              .replaceElement(elementSelectComponent, imageElementPainter);
+        }
       },
     );
   }
