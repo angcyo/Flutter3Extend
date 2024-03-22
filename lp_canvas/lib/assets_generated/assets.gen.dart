@@ -102,11 +102,20 @@ class $AssetsSvgGen {
   /// File path: assets/svg/arrange_up.svg
   String get arrangeUp => 'assets/svg/arrange_up.svg';
 
+  /// File path: assets/svg/average_height.svg
+  String get averageHeight => 'assets/svg/average_height.svg';
+
   /// File path: assets/svg/average_horizontal.svg
   String get averageHorizontal => 'assets/svg/average_horizontal.svg';
 
+  /// File path: assets/svg/average_size.svg
+  String get averageSize => 'assets/svg/average_size.svg';
+
   /// File path: assets/svg/average_vertical.svg
   String get averageVertical => 'assets/svg/average_vertical.svg';
+
+  /// File path: assets/svg/average_width.svg
+  String get averageWidth => 'assets/svg/average_width.svg';
 
   /// File path: assets/svg/canvas_add.svg
   String get canvasAdd => 'assets/svg/canvas_add.svg';
@@ -174,8 +183,11 @@ class $AssetsSvgGen {
         arrangeDown,
         arrangeTop,
         arrangeUp,
+        averageHeight,
         averageHorizontal,
+        averageSize,
         averageVertical,
+        averageWidth,
         canvasAdd,
         canvasAlign,
         canvasArrange,

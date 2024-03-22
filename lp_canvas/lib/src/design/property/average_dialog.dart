@@ -26,7 +26,7 @@ class AverageDialog extends StatelessWidget {
         canvasDelegate?.canvasElementManager.elementSelectComponent;
     return [
       IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignLeft),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.averageHorizontal),
         text: "水平均分",
         enable: selectedElementCount > 2,
         onTap: () {
@@ -36,7 +36,7 @@ class AverageDialog extends StatelessWidget {
         },
       ),
       IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignTop),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.averageVertical),
         text: "垂直均分",
         enable: selectedElementCount > 2,
         onTap: () {
@@ -46,7 +46,7 @@ class AverageDialog extends StatelessWidget {
         },
       ),
       IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignRight),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.averageWidth),
         text: "等宽",
         onTap: () {
           canvasDelegate?.canvasElementManager
@@ -55,7 +55,7 @@ class AverageDialog extends StatelessWidget {
         },
       ),
       IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignBottom),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.averageHeight),
         text: "等高",
         onTap: () {
           canvasDelegate?.canvasElementManager
@@ -64,7 +64,7 @@ class AverageDialog extends StatelessWidget {
         },
       ),
       IconTextTile(
-        iconWidget: lpCanvasSvgWidget(Assets.svg.alignHorizontal),
+        iconWidget: lpCanvasSvgWidget(Assets.svg.averageSize),
         text: "等大小",
         onTap: () {
           canvasDelegate?.canvasElementManager
