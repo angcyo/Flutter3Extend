@@ -39,9 +39,10 @@ class RasterizeWidget extends StatelessWidget {
       icon: lpCanvasSvgWidget(Assets.svg.canvasRasterize),
       tooltip: text,
       text: const Text(text),
-      onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+      onTap: () async {
+        final image = await CanvasDelegate.rasterizeElement(
+            canvasDelegate?.canvasElementManager.elementSelectComponent);
+        debugger();
       },
     );
   }
