@@ -18,9 +18,14 @@ class AddPictureWidget extends StatelessWidget {
       icon: lpCanvasSvgWidget(Assets.svg.addPicture),
       tooltip: text,
       text: const Text(text),
-      onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+      onTap: () async {
+        final result = await pickFiles();
+        result?.paths.forEach((element) async {
+          l.d('element:$element');
+          final image = await element?.toImageFromFile();
+          final base64 = await image?.toBase64();
+          //debugger();
+        });
       },
     );
   }
