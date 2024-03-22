@@ -19,8 +19,12 @@ class ArrangeWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        showDialogWidget(
+          context: context,
+          widget: ArrangeDialog(canvasDelegate),
+          /*barrierColor: null,*/
+          type: TranslationType.translation,
+        );
       },
     );
   }
