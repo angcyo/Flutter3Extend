@@ -5,6 +5,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
 import 'package:lp_canvas/src/design/canvas_design.dart';
+import 'package:lp_device/lp_device.dart';
 
 import 'assets_generated/assets.gen.dart';
 
