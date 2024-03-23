@@ -24,7 +24,7 @@ dependencies:
   flutter_gen: ^5.4.0
 
 dependency_overrides:
-  web: ^0.5.1
+  #web: ^0.5.1
 
 dev_dependencies:
   flutter_test:

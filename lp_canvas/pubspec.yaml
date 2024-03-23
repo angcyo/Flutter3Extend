@@ -17,6 +17,8 @@ dependencies:
     path: ../../Flutter3Core/flutter3_web
   flutter3_canvas:
     path: ../../Flutter3Core/flutter3_canvas
+  lp_device:
+    path: ../lp_device
 
   # https://pub.dev/packages/flutter_gen
   # https://pub.dev/packages/build_runner
@@ -24,7 +26,7 @@ dependencies:
   flutter_gen: ^5.4.0
 
 dependency_overrides:
-  web: ^0.5.1
+  #web: ^0.5.1
 
 dev_dependencies:
   flutter_test:
