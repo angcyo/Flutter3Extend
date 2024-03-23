@@ -7,6 +7,13 @@ part of '../../lp_canvas.dart';
 ///
 
 class LpConstants {
+  /// 默认的阈值
+  static const defaultThreshold = 240.0;
+
+  /// 默认的字间距
+  @mm
+  static const defaultCharSpacing = 0.5;
+
   /// 第二版结构中, 工程默认的结构数据放在zip包里面此流中
   static const projectV2DefaultName = ".lpproject";
 
@@ -15,6 +22,47 @@ class LpConstants {
 
   /// V2: 所有资源存放的基础路径
   static const projectV2BaseUri = "res/";
+
+  //---
+
+  //region ---图片滤镜---
+
+  /// 数数据模式, 黑白, 发送线段数据
+  /// 对应传输给机器的数据类型:
+  /// [com.angcyo.bluetooth.fsc.laserpacker.command.DataCmd.ENGRAVE_TYPE_BITMAP_PATH]
+  ///
+  static const imageFilterBlackWhite = 1;
+
+  /// 数据模式, 灰度
+  /// 对应传输给机器的数据类型:
+  /// [com.angcyo.bluetooth.fsc.laserpacker.command.DataCmd.ENGRAVE_TYPE_BITMAP]
+  static const imageFilterGrey = 3;
+
+  /// 数据模式, 抖动, 发送抖动数据
+  /// 对应传输给机器的数据类型:
+  /// [com.angcyo.bluetooth.fsc.laserpacker.command.DataCmd.ENGRAVE_TYPE_BITMAP_DITHERING]
+  ///
+  static const imageFilterDithering = 5;
+
+  /// 数据模式, GCode, 发送GCode数据
+  /// 对应传输给机器的数据类型:
+  /// [com.angcyo.bluetooth.fsc.laserpacker.command.DataCmd.ENGRAVE_TYPE_GCODE]
+  ///
+  static const imageFilterGCode = 6;
+
+  /// 2D浮雕
+  /// 对应传输给机器的数据类型:
+  /// [com.angcyo.bluetooth.fsc.laserpacker.command.DataCmd.ENGRAVE_TYPE_BITMAP]
+  ///
+  static const imageFilterRelief = 7;
+
+  /// 数据模式, 版画
+  static const imageFilterPrint = 4;
+
+  /// 数据模式, 印章
+  static const imageFilterSeal = 2;
+
+  //endregion ---图片滤镜---
 
   //region ---数据类型---
 
@@ -94,4 +142,32 @@ extension LpIntEx on int {
 extension LpPaintingStyleEx on PaintingStyle {
   ///  [ElementBean.paintStyle]
   int get styleInt => this == PaintingStyle.stroke ? 1 : 0;
+}
+
+extension LpStringEx on String {
+  /// [ElementBean.textAlign]
+  TextAlign get textAlign {
+    switch (toLowerCase()) {
+      case "center":
+        return TextAlign.center;
+      case "right":
+        return TextAlign.right;
+      default:
+        return TextAlign.left;
+    }
+  }
+}
+
+extension LpTextAlignEx on TextAlign {
+  /// [ElementBean.textAlign]
+  String get alignString {
+    switch (this) {
+      case TextAlign.center:
+        return "center";
+      case TextAlign.right:
+        return "right";
+      default:
+        return "left";
+    }
+  }
 }

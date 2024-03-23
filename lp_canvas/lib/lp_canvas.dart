@@ -11,9 +11,11 @@ import 'assets_generated/assets.gen.dart';
 
 export 'src/design/canvas_design.dart';
 
+part 'src/lp_canvas_keys.dart';
 part 'src/project/bean/element_bean.dart';
 part 'src/project/bean/laser_options_bean.dart';
 part 'src/project/bean/project_bean.dart';
+part 'src/project/bean/variable_bean.dart';
 part 'src/project/lp_constants.dart';
 
 /// [toast]

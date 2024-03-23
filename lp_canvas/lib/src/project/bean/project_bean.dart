@@ -117,6 +117,7 @@ class ProjectBean {
     exDevice = json['exDevice'];
     moduleState = json['moduleState'];
     laserOptions = json['laserOptions'];
+    data = json['data'];
   }
 
   ///toJson
@@ -137,6 +138,7 @@ class ProjectBean {
     map['exDevice'] = exDevice;
     map['moduleState'] = moduleState;
     map['laserOptions'] = laserOptions;
+    map['data'] = data;
     return map;
   }
 
