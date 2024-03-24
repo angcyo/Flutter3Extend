@@ -25,6 +25,9 @@ dependencies:
   # https://pub.dev/packages/flutter_gen_runner
   flutter_gen: ^5.4.0
 
+  #in flutter3_http
+  json_annotation: any
+
 dependency_overrides:
   #web: ^0.5.1
 
@@ -34,6 +37,7 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   build_runner: any
   flutter_gen_runner: any
+  json_serializable: any
 
 # https://pub.dev/packages/flutter_gen#configuration-file
 # dart run build_runner build

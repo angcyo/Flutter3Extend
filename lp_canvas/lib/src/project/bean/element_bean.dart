@@ -1,4 +1,10 @@
-part of '../../../lp_canvas.dart';
+import 'dart:ui';
+
+import 'package:flutter3_app/flutter3_app.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:lp_canvas/lp_canvas.dart';
+
+part 'element_bean.g.dart';
 
 ///
 /// Email:angcyo@126.com
@@ -6,7 +12,15 @@ part of '../../../lp_canvas.dart';
 /// @date 2024/03/23
 ///
 /// 描述元素的数据结构
+@JsonSerializable()
 class ElementBean {
+  factory ElementBean.fromJson(Map<String, dynamic> json) =>
+      _$ElementBeanFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ElementBeanToJson(this);
+
+  ElementBean();
+
   //region ---bounds---
 
   /// 数据所在位置
@@ -401,7 +415,5 @@ class ElementBean {
   /// 是否是切割
   bool isCut = false;
 
-  //endregion ---雕刻参数/LaserOptionsBean---
-
-
+//endregion ---雕刻参数/LaserOptionsBean---
 }

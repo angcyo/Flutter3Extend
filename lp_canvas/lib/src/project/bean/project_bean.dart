@@ -1,4 +1,8 @@
-part of '../../../lp_canvas.dart';
+import 'package:flutter3_app/flutter3_app.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:lp_canvas/src/project/bean/laser_options_bean.dart';
+
+part 'project_bean.g.dart';
 
 ///
 /// Email:angcyo@126.com
@@ -7,7 +11,15 @@ part of '../../../lp_canvas.dart';
 ///
 /// 工程数据结构, 存在在`zip`包文件`.lp2`中的`.lpproject`实体中
 /// https://www.showdoc.com.cn/2057569273029235/9276420919604941
+@JsonSerializable()
 class ProjectBean {
+  factory ProjectBean.fromJson(Map<String, dynamic> json) =>
+      _$ProjectBeanFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProjectBeanToJson(this);
+
+  ProjectBean();
+
   //region ---工程基础描述---
 
   /// 工程数据结构的版本, 这里固定为2
@@ -94,52 +106,10 @@ class ProjectBean {
     } else {
       final jsonList = <Map<String, dynamic>>[];
       for (final bean in list) {
-        jsonList.add(bean.toJson());
+        jsonList.add(bean.toJson(null));
       }
       laserOptions = jsonList.toJsonString();
     }
-  }
-
-  /// fromJson
-  ProjectBean.fromJson(dynamic json) {
-    version = json['version'];
-    file_id = json['file_id'];
-    file_name = json['file_name'];
-    create_time = json['create_time'];
-    update_time = json['update_time'];
-    platform = json['platform'];
-    width = json['width'];
-    height = json['height'];
-    preview_img = json['preview_img'];
-    swVersion = json['swVersion'];
-    hwVersion = json['hwVersion'];
-    productName = json['productName'];
-    exDevice = json['exDevice'];
-    moduleState = json['moduleState'];
-    laserOptions = json['laserOptions'];
-    data = json['data'];
-  }
-
-  ///toJson
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['version'] = version;
-    map['file_id'] = file_id;
-    map['file_name'] = file_name;
-    map['create_time'] = create_time;
-    map['update_time'] = update_time;
-    map['platform'] = platform;
-    map['width'] = width;
-    map['height'] = height;
-    map['preview_img'] = preview_img;
-    map['swVersion'] = swVersion;
-    map['hwVersion'] = hwVersion;
-    map['productName'] = productName;
-    map['exDevice'] = exDevice;
-    map['moduleState'] = moduleState;
-    map['laserOptions'] = laserOptions;
-    map['data'] = data;
-    return map;
   }
 
 //endregion ---方法---

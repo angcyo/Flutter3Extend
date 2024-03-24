@@ -1,4 +1,6 @@
-part of '../../../lp_canvas.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'variable_bean.g.dart';
 
 ///
 /// Email:angcyo@126.com
@@ -6,4 +8,12 @@ part of '../../../lp_canvas.dart';
 /// @date 2024/03/23
 ///
 /// 变量文本数据结构
-class VariableBean {}
+@JsonSerializable()
+class VariableBean {
+  factory VariableBean.fromJson(Map<String, dynamic> json) =>
+      _$VariableBeanFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VariableBeanToJson(this);
+
+  VariableBean();
+}

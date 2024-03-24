@@ -5,18 +5,16 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
 import 'package:lp_canvas/src/design/canvas_design.dart';
-import 'package:lp_device/lp_device.dart';
 
 import 'assets_generated/assets.gen.dart';
 
 export 'src/design/canvas_design.dart';
+export 'src/project/bean/element_bean.dart';
+export 'src/project/bean/laser_options_bean.dart';
+export 'src/project/bean/project_bean.dart';
+export 'src/project/bean/variable_bean.dart';
 
-part 'src/lp_canvas_keys.dart';
-part 'src/project/bean/element_bean.dart';
-part 'src/project/bean/laser_options_bean.dart';
-part 'src/project/bean/project_bean.dart';
-part 'src/project/bean/variable_bean.dart';
-part 'src/project/lp_constants.dart';
+part 'src/lp_canvas_keys.dart';part 'src/project/lp_constants.dart';
 
 /// [toast]
 lpCanvasToast(Widget msg) => toastBlur(msg: msg);
