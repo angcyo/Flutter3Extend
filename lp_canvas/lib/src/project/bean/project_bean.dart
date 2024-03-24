@@ -106,7 +106,7 @@ class ProjectBean {
     } else {
       final jsonList = <Map<String, dynamic>>[];
       for (final bean in list) {
-        jsonList.add(bean.toJson(null));
+        jsonList.add(bean.toJson());
       }
       laserOptions = jsonList.toJsonString();
     }
