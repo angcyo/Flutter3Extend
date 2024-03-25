@@ -18,11 +18,6 @@ dependencies:
   lp_canvas:
     path: ../lp_canvas
 
-  # https://pub.dev/packages/flutter_gen
-  # https://pub.dev/packages/build_runner
-  # https://pub.dev/packages/flutter_gen_runner
-  flutter_gen: ^5.4.0
-
 dependency_overrides:
   #web: ^0.5.1
 
