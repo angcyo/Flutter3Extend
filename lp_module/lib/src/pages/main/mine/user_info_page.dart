@@ -1,4 +1,4 @@
-part of lp_module;
+part of '../../../../lp_module.dart';
 
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
