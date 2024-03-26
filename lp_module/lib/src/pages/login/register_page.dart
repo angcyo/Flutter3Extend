@@ -55,7 +55,7 @@ class _RegisterPageState extends State<RegisterPage>
             context.tryUpdateState();
             //toast("text:$value".text());
           },
-          child: LPS.of(context).registerPrivacy.toHtmlWidget(context),
+          child: LPModule.of(context).registerPrivacy.toHtmlWidget(context),
         ),
       ).padding(paddingLeft / 2, kXh, paddingRight / 2, 0),
       accountConfig.controller

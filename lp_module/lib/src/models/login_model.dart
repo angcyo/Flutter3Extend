@@ -40,7 +40,7 @@ class LoginModel extends ViewModel {
         }
       });
     } else {
-      lpToast(LPS.of(context).privacyTip.text());
+      lpToast(LPModule.of(context).privacyTip.text());
     }
   }
 }

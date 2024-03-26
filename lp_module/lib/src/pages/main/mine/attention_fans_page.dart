@@ -61,12 +61,12 @@ class _AttentionFansPageState extends State<AttentionFansPage>
               var attentionCount = liveData?.attention ?? 0;
               var fansCount = liveData?.follow ?? 0;
 
-              var attention = LPS.of(context).attention;
+              var attention = LPModule.of(context).attention;
               if (attentionCount > 0) {
                 attention += "($attentionCount)";
               }
 
-              var fans = LPS.of(context).fans;
+              var fans = LPModule.of(context).fans;
               if (fansCount > 0) {
                 fans += "($fansCount)";
               }

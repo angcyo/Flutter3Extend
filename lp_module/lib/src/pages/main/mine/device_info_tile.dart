@@ -22,10 +22,11 @@ class DeviceInfoTile extends StatelessWidget {
 
   /// 设备第一个信息
   Widget _buildDeviceTile(BuildContext context) {
-    var bean = deviceInfoBean;
-    var globalTheme = GlobalTheme.of(context);
+    final bean = deviceInfoBean;
+    final globalTheme = GlobalTheme.of(context);
     if (bean == null) {
-      return GlobalConfig.of(context).loadingIndicatorBuilder(context, null);
+      return GlobalConfig.of(context)
+          .loadingIndicatorBuilder(context, this, null);
     }
     return (bean.blueName ?? "--")
         .text()
@@ -57,13 +58,13 @@ class DeviceInfoTile extends StatelessWidget {
               .rowOf(
                 stringBuilder((builder) {
                   builder.appendLine(
-                      '${LPS.of(context).machineType}: ${bean.deviceModel}');
+                      '${LPModule.of(context).machineType}: ${bean.deviceModel}');
                   builder.appendLine(
-                      '${LPS.of(context).registerTime}: ${bean.createTime}');
+                      '${LPModule.of(context).registerTime}: ${bean.createTime}');
                   builder.appendLine(
-                      '${LPS.of(context).firmwareVersion}: V${bean.firmwareVersion?.toVersionString()}');
+                      '${LPModule.of(context).firmwareVersion}: V${bean.firmwareVersion?.toVersionString()}');
                   builder.append(
-                      '${LPS.of(context).softwareVersion}: V${bean.appVersion}');
+                      '${LPModule.of(context).softwareVersion}: V${bean.appVersion}');
                 })
                     .text(
                       style: globalTheme.textSubStyle,

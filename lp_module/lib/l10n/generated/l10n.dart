@@ -12,42 +12,42 @@ import 'intl/messages_all.dart';
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
 // ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
-class LPS {
-  LPS();
+class LPModule {
+  LPModule();
 
-  static LPS? _current;
+  static LPModule? _current;
 
-  static LPS get current {
+  static LPModule get current {
     assert(_current != null,
-        'No instance of LPS was loaded. Try to initialize the LPS delegate before accessing LPS.current.');
+        'No instance of LPModule was loaded. Try to initialize the LPModule delegate before accessing LPModule.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
-  static Future<LPS> load(Locale locale) {
+  static Future<LPModule> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      final instance = LPS();
-      LPS._current = instance;
+      final instance = LPModule();
+      LPModule._current = instance;
 
       return instance;
     });
   }
 
-  static LPS of(BuildContext context) {
-    final instance = LPS.maybeOf(context);
+  static LPModule of(BuildContext context) {
+    final instance = LPModule.maybeOf(context);
     assert(instance != null,
-        'No instance of LPS present in the widget tree. Did you add LPS.delegate in localizationsDelegates?');
+        'No instance of LPModule present in the widget tree. Did you add LPModule.delegate in localizationsDelegates?');
     return instance!;
   }
 
-  static LPS? maybeOf(BuildContext context) {
-    return Localizations.of<LPS>(context, LPS);
+  static LPModule? maybeOf(BuildContext context) {
+    return Localizations.of<LPModule>(context, LPModule);
   }
 
   /// `主页`
@@ -381,7 +381,7 @@ class LPS {
   }
 }
 
-class AppLocalizationDelegate extends LocalizationsDelegate<LPS> {
+class AppLocalizationDelegate extends LocalizationsDelegate<LPModule> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
@@ -394,7 +394,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<LPS> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<LPS> load(Locale locale) => LPS.load(locale);
+  Future<LPModule> load(Locale locale) => LPModule.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

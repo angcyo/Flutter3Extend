@@ -47,7 +47,7 @@ class _MainPageState extends State<MainPage> with BottomNavigationMixin {
         activeIcon: loadAssetSvgWidget(Assets.svg.homeSelected,
             package: "lp_module",
             colorFilter: appTheme.icoSelectedColor.toColorFilter()),
-        label: LPS.of(context).home,
+        label: LPModule.of(context).home,
       ),
       if (kShowCommunityControl)
         BottomNavigationBarItem(
@@ -57,7 +57,7 @@ class _MainPageState extends State<MainPage> with BottomNavigationMixin {
           activeIcon: loadAssetSvgWidget(Assets.svg.communitySelected,
               package: "lp_module",
               colorFilter: appTheme.icoSelectedColor.toColorFilter()),
-          label: LPS.of(context).community,
+          label: LPModule.of(context).community,
         ),
       BottomNavigationBarItem(
         icon: loadAssetSvgWidget(Assets.svg.mineNormal,
@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage> with BottomNavigationMixin {
         activeIcon: loadAssetSvgWidget(Assets.svg.mineSelected,
             package: "lp_module",
             colorFilter: appTheme.icoSelectedColor.toColorFilter()),
-        label: LPS.of(context).mine,
+        label: LPModule.of(context).mine,
       ),
     ];
     TextStyle selectedLabelStyle = TextStyle(

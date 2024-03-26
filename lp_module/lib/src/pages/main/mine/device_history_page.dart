@@ -39,7 +39,7 @@ class _DeviceHistoryPageState extends State<DeviceHistoryPage>
       appBar: globalConfig.appBarBuilder(
         context,
         this,
-        title: LPS.of(context).deviceHistory.text(),
+        title: LPModule.of(context).deviceHistory.text(),
         flexibleSpace: linearGradientWidget(
             listOf(globalConfig.globalTheme.themeWhiteColor)),
       ),

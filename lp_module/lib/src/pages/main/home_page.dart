@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage>
           )
           .paddingOnly(left: globalTheme.xh, right: globalTheme.l),
       [
-        Text(LPS.of(context).clickConnectDeviceLabel),
+        Text(LPModule.of(context).clickConnectDeviceLabel),
         if (nickname != null) nickname.text()
       ]
           .column(crossAxisAlignment: CrossAxisAlignment.start)!
@@ -160,7 +160,7 @@ class _HomePageState extends State<HomePage>
           SliverPaintWidget(painter: _drawCircleGradient),
           _HomeGridWidget(
                   svgKey: Assets.svg.homeCreation,
-                  label: LPS.of(context).creation,
+                  label: LPModule.of(context).creation,
                   onTap: () {})
               .rGridTile(2,
                   childAspectRatio: 0.85,
@@ -168,17 +168,17 @@ class _HomePageState extends State<HomePage>
                   crossAxisSpacing: kXh),
           _HomeGridWidget(
                   svgKey: Assets.svg.homeCamera,
-                  label: LPS.of(context).camera,
+                  label: LPModule.of(context).camera,
                   onTap: () {})
               .rGridTile(2),
           _HomeGridWidget(
                   svgKey: Assets.svg.homeAlbum,
-                  label: LPS.of(context).album,
+                  label: LPModule.of(context).album,
                   onTap: () {})
               .rGridTile(2),
           _HomeGridWidget(
               svgKey: Assets.svg.homeMaterial,
-              label: LPS.of(context).material,
+              label: LPModule.of(context).material,
               onTap: () {
                 context.pushWidget(const MaterialsPage());
               }).rGridTile(2),

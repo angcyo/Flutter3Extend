@@ -101,7 +101,7 @@ class _MinePageState extends State<MinePage>
             (userBean?.attention ?? 0).text(
               style: globalTheme.textLabelStyle,
             ),
-            LPS.of(context).attention.text()
+            LPModule.of(context).attention.text()
           ].column()!.click(() {
             context.pushWidget(const AttentionFansPage(
               tabIndex: 0,
@@ -111,7 +111,7 @@ class _MinePageState extends State<MinePage>
             (userBean?.follow ?? 0).text(
               style: globalTheme.textLabelStyle,
             ),
-            LPS.of(context).fans.text()
+            LPModule.of(context).fans.text()
           ].column()!.click(() {
             context.pushWidget(const AttentionFansPage(
               tabIndex: 1,
@@ -121,7 +121,7 @@ class _MinePageState extends State<MinePage>
             (userBean?.like ?? 0).text(
               style: globalTheme.textLabelStyle,
             ),
-            LPS.of(context).like.text()
+            LPModule.of(context).like.text()
           ].column()!.click(() {
             //showGeneralDialog(context: context, pageBuilder: pageBuilder)
             showDialog(
@@ -177,39 +177,39 @@ class _MinePageState extends State<MinePage>
         //功能区↓
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineArticle),
-          label: LPS.of(context).article,
+          label: LPModule.of(context).article,
           onTap: () {},
         ).rGridTile(3, childAspectRatio: 1 / 0.65),
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineFiles),
-          label: LPS.of(context).files,
+          label: LPModule.of(context).files,
           onTap: () {},
         ).rGridTile(3),
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineHistory),
-          label: LPS.of(context).history,
+          label: LPModule.of(context).history,
           onTap: () {},
         ).rGridTile(3),
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineHelp),
-          label: LPS.of(context).help,
+          label: LPModule.of(context).help,
           onTap: () {},
         ).rGridTile(3),
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineSetting),
-          label: LPS.of(context).setting,
+          label: LPModule.of(context).setting,
           onTap: () {
             context.pushWidget(const UserSettingPage());
           },
         ).rGridTile(3),
         SingleGridTile(
           iconWidget: lpSvgWidget(Assets.svg.mineFaq),
-          label: LPS.of(context).faq,
+          label: LPModule.of(context).faq,
           onTap: () {},
         ).rGridTile(3),
         //最近连接的设备↓
         [
-          LPS
+          LPModule
               .of(context)
               .nearConnectedDeviceLabel
               .text(
@@ -218,7 +218,7 @@ class _MinePageState extends State<MinePage>
                 ),
               )
               .expanded(),
-          [LPS.of(context).more.text(), lpCanvasNextWidget()].row()!.inkWell(
+          [LPModule.of(context).more.text(), lpCanvasNextWidget()].row()!.inkWell(
               onTap: () {
             context.pushWidget(const DeviceHistoryPage());
           }),
@@ -228,13 +228,13 @@ class _MinePageState extends State<MinePage>
         //last↓
         packageInfo
             .toWidget((info) =>
-                "${LPS.of(context).appVersionTip(info!.version)}\n$info"
+                "${LPModule.of(context).appVersionTip(info!.version)}\n$info"
                     .text(
                   textAlign: TextAlign.center,
                 )
                     .ink(onTap: () {
                   shareAppLog();
-                  /*"${LPS.of(context).appVersionTip(info!.version)}\n$info"
+                  /*"${LPModule.of(context).appVersionTip(info!.version)}\n$info"
                       .share()
                       .get();*/
                 }))

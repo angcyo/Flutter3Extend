@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
           cursorColor: globalConfig.globalTheme.accentColor,
           borderColor: Colors.transparent,
           focusBorderColor: globalConfig.globalTheme.accentColor,
-          hintText: LPS.of(context).account,
+          hintText: LPModule.of(context).account,
           maxLength: kAccountLength,
         ).padding(paddingLeft, paddingLeft, paddingRight, 0),
         SingleInputWidget(
@@ -83,10 +83,10 @@ class _LoginPageState extends State<LoginPage> {
           cursorColor: globalConfig.globalTheme.accentColor,
           focusBorderColor: globalConfig.globalTheme.accentColor,
           borderColor: Colors.transparent,
-          hintText: LPS.of(context).password,
+          hintText: LPModule.of(context).password,
           maxLength: kPasswordLength,
         ).padding(paddingLeft, kXh, paddingRight, 0),
-        LPS
+        LPModule
             .of(context)
             .forgetPassword
             .text(style: TextStyle(color: globalConfig.globalTheme.linkColor))
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
           loginModel._accountConfig.controller,
           loginModel._passwordConfig.controller,
         ].listener((context) => FillGradientButton(
-              text: LPS.of(context).login,
+              text: LPModule.of(context).login,
               enabled: loginModel._accountConfig.controller.text.isNotEmpty &&
                   loginModel._passwordConfig.controller.text.isNotEmpty,
               disabledFillColor: globalConfig.globalTheme.whiteSubBgColor,
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
               onTap: () => loginModel.login(context),
             ).padding(paddingLeft, kXh, paddingRight, 0)),
         FillGradientButton(
-          text: LPS.of(context).register,
+          text: LPModule.of(context).register,
           gradientColors: [
             globalConfig.globalTheme.whiteSubBgColor,
             globalConfig.globalTheme.whiteSubBgColor.darkColor,
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
               context.tryUpdateState();
               //toast("text:$value".text());
             },
-            child: LPS.of(context).registerPrivacy.toHtmlWidget(context),
+            child: LPModule.of(context).registerPrivacy.toHtmlWidget(context),
           ),
         ).padding(paddingLeft / 2, kXh, paddingRight / 2, 0),
       ].rScroll(),

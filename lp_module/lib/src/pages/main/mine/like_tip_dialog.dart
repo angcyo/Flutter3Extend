@@ -16,7 +16,7 @@ class LikeTipDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     var globalTheme = GlobalTheme.of(context);
     return [
-      LPS
+      LPModule
           .of(context)
           .like
           .text(
@@ -64,7 +64,7 @@ class LikeTipDialog extends StatelessWidget {
         onTap: () {
           context.pop();
         },
-        child: LPS.of(context).iKnown.text(),
+        child: LPModule.of(context).iKnown.text(),
       ).paddingAll(kX),
     ]
         .column(
