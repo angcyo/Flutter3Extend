@@ -23,7 +23,10 @@ class AddPictureWidget extends StatelessWidget {
         result?.paths.forEach((element) async {
           l.d('element:$element');
           final image = await element?.toImageFromFile();
-          final base64 = await image?.toBase64();
+          LpImageElement imageElement = LpImageElement();
+          imageElement.initFromImage(image);
+          canvasDelegate?.canvasElementManager.addElement(imageElement);
+          //final base64 = await image?.toBase64();
           //debugger();
         });
       },
