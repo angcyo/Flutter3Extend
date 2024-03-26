@@ -8,9 +8,13 @@ class LpProject {
   /// 创建一个图片元素
   /// [ElementBean]
   /// [LpConstants.dataTypeBitmap]
-  static ElementBean? createImageBean() {
+  static ElementBean? createImageBean({
+    UiImage? image,
+  }) {
     ElementBean bean = ElementBean();
     bean.mtype = LpConstants.dataTypeBitmap;
+    bean.width = image?.width.toDouble() ?? 0;
+    bean.height = image?.height.toDouble() ?? 0;
     return bean;
   }
 }

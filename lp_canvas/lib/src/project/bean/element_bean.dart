@@ -31,7 +31,7 @@ class ElementBean {
   double? top;
 
   /// 数据原始的宽高; 线条的长度
-  /// 如果是图片元素; 则存储的就是图片宽高
+  /// 如果是图片元素; 则存储的就是图片的像素宽高
   @mm
   double? width;
 

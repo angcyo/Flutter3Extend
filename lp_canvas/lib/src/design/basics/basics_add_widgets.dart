@@ -23,9 +23,14 @@ class AddPictureWidget extends StatelessWidget {
         result?.paths.forEach((element) async {
           l.d('element:$element');
           final image = await element?.toImageFromFile();
-          LpImageElement imageElement = LpImageElement();
-          imageElement.initFromImage(image);
-          canvasDelegate?.canvasElementManager.addElement(imageElement);
+          final imageElement = LpImageElement();
+          final bean = LpProject.createImageBean(image: image);
+          imageElement.elementBean = bean;
+          imageElement.updatePropertyFromBean();
+          imageElement.originImage = image;
+          imageElement.paintImage = image;
+          canvasDelegate?.canvasElementManager
+              .addElement(imageElement, selected: true);
           //final base64 = await image?.toBase64();
           //debugger();
         });

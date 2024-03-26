@@ -55,8 +55,12 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             } else {
               sy = 1;
             }
-            canvasElementControlManager?.scaleElement(elementSelectComponent,
-                sx: sx, sy: sy);
+            canvasElementControlManager?.scaleElement(
+              elementSelectComponent,
+              sx: sx,
+              sy: sy,
+              isLockRatio: isLockRatio,
+            );
           }
         },
       ),
@@ -105,8 +109,12 @@ class CanvasBasicsEditWidget extends StatelessWidget {
             } else {
               sx = 1;
             }
-            canvasElementControlManager?.scaleElement(elementSelectComponent,
-                sx: sx, sy: sy);
+            canvasElementControlManager?.scaleElement(
+              elementSelectComponent,
+              sx: sx,
+              sy: sy,
+              isLockRatio: isLockRatio,
+            );
           }
         },
       ),
