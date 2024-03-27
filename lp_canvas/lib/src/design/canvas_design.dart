@@ -14,6 +14,7 @@ import 'package:flutter3_canvas/flutter3_canvas.dart';
 import '../../assets_generated/assets.gen.dart';
 import '../../lp_canvas.dart';
 import '../project/element/lp_image_element.dart';
+import 'property/setting_dialog.dart';
 
 part 'basics/basics_add_widgets.dart';
 part 'basics/basics_widgets.dart';

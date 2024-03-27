@@ -68,8 +68,7 @@ class CanvasSettingTriggerWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        context.showDialog(SettingDialog(canvasDelegate));
       },
     );
   }

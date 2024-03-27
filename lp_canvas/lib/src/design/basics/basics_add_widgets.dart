@@ -31,6 +31,7 @@ class AddPictureWidget extends StatelessWidget {
           imageElement.paintImage = image;
           canvasDelegate?.canvasElementManager
               .addElement(imageElement, selected: true);
+          canvasDelegate?.showRect(elementPainter: imageElement);
           //final base64 = await image?.toBase64();
           //debugger();
         });
