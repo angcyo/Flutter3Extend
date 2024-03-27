@@ -5,7 +5,7 @@ part of '../canvas_design.dart';
 /// @date 2024/03/22
 ///
 /// 排列对话框
-class ArrangeDialog extends StatelessWidget {
+class ArrangeDialog extends StatelessWidget with DialogMixin {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
@@ -24,7 +24,7 @@ class ArrangeDialog extends StatelessWidget {
         canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return [
+    return buildBottomDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.arrangeTop),
         text: "上移一层",
@@ -34,7 +34,7 @@ class ArrangeDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .arrangeElement(elementSelectComponent, CanvasArrangeType.up);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -46,7 +46,7 @@ class ArrangeDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .arrangeElement(elementSelectComponent, CanvasArrangeType.down);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -58,7 +58,7 @@ class ArrangeDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .arrangeElement(elementSelectComponent, CanvasArrangeType.top);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -70,19 +70,9 @@ class ArrangeDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .arrangeElement(elementSelectComponent, CanvasArrangeType.bottom);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
-    ]
-        .column()!
-        .container(color: Colors.white)
-        .matchParent(matchHeight: false)
-        .align(Alignment.bottomCenter);
-  }
-
-  void checkClose(BuildContext context) {
-    if (closeAfterTap) {
-      Navigator.of(context).pop();
-    }
+    ]);
   }
 }

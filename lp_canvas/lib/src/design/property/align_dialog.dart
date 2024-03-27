@@ -5,7 +5,7 @@ part of '../canvas_design.dart';
 /// @date 2024/03/21
 ///
 /// 对齐对话框
-class AlignDialog extends StatelessWidget {
+class AlignDialog extends StatelessWidget with DialogMixin {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
@@ -22,14 +22,14 @@ class AlignDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return [
+    return buildBottomDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignLeft),
         text: "左对齐",
         onTap: () {
           canvasDelegate?.canvasElementManager
               .alignElement(elementSelectComponent, CanvasAlignType.left);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -38,7 +38,7 @@ class AlignDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .alignElement(elementSelectComponent, CanvasAlignType.top);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -47,7 +47,7 @@ class AlignDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .alignElement(elementSelectComponent, CanvasAlignType.right);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -56,7 +56,7 @@ class AlignDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .alignElement(elementSelectComponent, CanvasAlignType.bottom);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -65,16 +65,16 @@ class AlignDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager.alignElement(
               elementSelectComponent, CanvasAlignType.horizontalCenter);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignVertical),
         text: "垂直居中",
         onTap: () {
-          canvasDelegate?.canvasElementManager
-              .alignElement(elementSelectComponent, CanvasAlignType.verticalCenter);
-          checkClose(context);
+          canvasDelegate?.canvasElementManager.alignElement(
+              elementSelectComponent, CanvasAlignType.verticalCenter);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
       IconTextTile(
@@ -83,19 +83,9 @@ class AlignDialog extends StatelessWidget {
         onTap: () {
           canvasDelegate?.canvasElementManager
               .alignElement(elementSelectComponent, CanvasAlignType.center);
-          checkClose(context);
+          closeDialogIf(context, closeAfterTap);
         },
       ),
-    ]
-        .column()!
-        .container(color: Colors.white)
-        .matchParent(matchHeight: false)
-        .align(Alignment.bottomCenter);
-  }
-
-  void checkClose(BuildContext context) {
-    if (closeAfterTap) {
-      Navigator.of(context).pop();
-    }
+    ]);
   }
 }

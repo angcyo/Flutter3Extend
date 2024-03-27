@@ -5,7 +5,7 @@ part of '../canvas_design.dart';
 /// @date 2024/03/21
 ///
 /// 均分对话框
-class AverageDialog extends StatelessWidget {
+class AverageDialog extends StatelessWidget with DialogMixin {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
@@ -24,7 +24,7 @@ class AverageDialog extends StatelessWidget {
         canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return [
+    return buildBottomDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.averageHorizontal),
         text: "水平均分",
@@ -72,11 +72,7 @@ class AverageDialog extends StatelessWidget {
           checkClose(context);
         },
       ),
-    ]
-        .column()!
-        .container(color: Colors.white)
-        .matchParent(matchHeight: false)
-        .align(Alignment.bottomCenter);
+    ]);
   }
 
   void checkClose(BuildContext context) {
