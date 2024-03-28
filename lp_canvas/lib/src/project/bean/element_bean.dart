@@ -219,13 +219,13 @@ class ElementBean {
   /// 椭圆矩形的宽度 = [rx] * 2
   ///
   @mm
-  double rx = 0;
+  double? rx;
 
   /// 垂直圆角半径; 矩形/椭圆
   /// 椭圆矩形的高度 = [ry] * 2
   ///
   @mm
-  double ry = 0;
+  double? ry;
 
   /// 星星/多边形的边数 5 [3-50]
   /// [com.angcyo.canvas.graphics.PolygonGraphicsParser]

@@ -4,7 +4,7 @@ part of '../canvas_design.dart';
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
 /// @date 2024/03/21
 ///
-
+/// 排列触发小部件
 class ArrangeWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -31,6 +31,7 @@ class ArrangeWidget extends StatelessWidget {
   }
 }
 
+/// 栅格化小部件
 class RasterizeWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -63,6 +64,7 @@ class RasterizeWidget extends StatelessWidget {
   }
 }
 
+/// 群组小部件
 class GroupWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -86,6 +88,7 @@ class GroupWidget extends StatelessWidget {
   }
 }
 
+/// 解组小部件
 class UngroupWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -109,6 +112,7 @@ class UngroupWidget extends StatelessWidget {
   }
 }
 
+/// 对齐小部件
 class AlignWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -137,6 +141,7 @@ class AlignWidget extends StatelessWidget {
   }
 }
 
+/// 均分小部件
 class AverageWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
@@ -162,5 +167,87 @@ class AverageWidget extends StatelessWidget {
         );
       },
     );
+  }
+}
+
+/// 形状选择小部件
+class ShapePropertyWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDelegate? canvasDelegate;
+
+  const ShapePropertyWidget(this.canvasDelegate, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final elementManager = canvasDelegate?.canvasElementManager;
+    return [
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapeLine),
+        tooltip: "线条",
+        text: const Text("线条"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypeLine),
+            selected: true,
+          );
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapeOval),
+        tooltip: "椭圆",
+        text: const Text("椭圆"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypeOval),
+            selected: true,
+          );
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapeRect),
+        tooltip: "矩形",
+        text: const Text("矩形"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypeRect),
+            selected: true,
+          );
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapePolygon),
+        tooltip: "多边形",
+        text: const Text("多边形"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypePolygon),
+            selected: true,
+          );
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapePentagram),
+        tooltip: "星形",
+        text: const Text("星形"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypePentagram,
+                side: 5),
+            selected: true,
+          );
+        },
+      ),
+      CanvasIconWidget(
+        icon: lpCanvasSvgWidget(Assets.svg.shapeLove),
+        tooltip: "心形",
+        text: const Text("心形"),
+        onTap: () {
+          elementManager?.addElement(
+            LpProject.createShapeElementPainter(LpConstants.dataTypeLove),
+            selected: true,
+          );
+        },
+      ),
+    ].row(mainAxisSize: MainAxisSize.max)!;
   }
 }

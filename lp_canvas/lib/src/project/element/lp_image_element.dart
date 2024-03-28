@@ -6,7 +6,7 @@ import 'lp_element.dart';
 ///
 /// @author <a href="mailto:angcyo@126.com">angcyo</a>
 /// @date 2024/03/26
-///
+/// 图片元素
 class LpImageElement extends ImageElementPainter with LpElementMixin {
   /// 原图, 用于操作
   UiImage? originImage;

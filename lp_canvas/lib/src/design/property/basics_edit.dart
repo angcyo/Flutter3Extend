@@ -9,7 +9,7 @@ class CanvasBasicsEditWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
-  const CanvasBasicsEditWidget({super.key, this.layoutController});
+  const CanvasBasicsEditWidget(this.layoutController, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -196,11 +196,11 @@ class CanvasBasicsEditWidget extends StatelessWidget {
 }
 
 /// 一组元素基础编辑
-class CanvasGroupBasicsEditWidget extends StatelessWidget {
+class CanvasGroupEditWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
-  const CanvasGroupBasicsEditWidget({super.key, this.layoutController});
+  const CanvasGroupEditWidget(this.layoutController, {super.key});
 
   @override
   Widget build(BuildContext context) {

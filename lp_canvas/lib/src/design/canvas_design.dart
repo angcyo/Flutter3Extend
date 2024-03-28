@@ -136,12 +136,11 @@ class _CanvasDesignLayoutWidgetState extends State<CanvasDesignLayoutWidget>
       SizeAnimationWidget(
         enableHeightAnimation: true,
         controller: layoutController.propertyLayoutController,
-        child:
-            CanvasDesignPropertyLayoutWidget(layoutController: layoutController)
-                .constrainedBox(constraint),
+        child: CanvasDesignPropertyLayoutWidget(layoutController)
+            .constrainedBox(constraint),
       ),
-      //控制操作
-      CanvasDesignBasicsLayoutWidget(layoutController: layoutController)
+      //底部基础控制操作
+      CanvasDesignBasicsLayoutWidget(layoutController)
           .constrainedBox(constraint),
     ]
         .column(crossAxisAlignment: CrossAxisAlignment.start)!
@@ -154,19 +153,43 @@ class CanvasDesignPropertyLayoutWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
-  const CanvasDesignPropertyLayoutWidget({super.key, this.layoutController});
+  const CanvasDesignPropertyLayoutWidget(this.layoutController, {super.key});
 
   @override
   Widget build(BuildContext context) {
     final canvasDelegate = layoutController?.canvasDelegate;
     final isSelectedGroupElement =
         canvasDelegate?.canvasElementManager.isSelectedGroupElement == true;
-    return [
-      if (isSelectedGroupElement)
-        CanvasGroupBasicsEditWidget(layoutController: layoutController),
-      canvasDesignVerticalLine,
-      CanvasBasicsEditWidget(layoutController: layoutController),
-    ]
+    //选中的元素
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+
+    //显示的属性类型
+    final showPropertyType = layoutController?.showPropertyTypeValue.value;
+    final isEditProperty = showPropertyType == DesignShowPropertyType.edit;
+    final isShapeProperty = showPropertyType == DesignShowPropertyType.shape;
+
+    //---
+    WidgetList widgetList;
+    if (isEditProperty) {
+      widgetList = [
+        if (isSelectedGroupElement)
+          //group元素
+          CanvasGroupEditWidget(layoutController),
+        //竖线
+        canvasDesignVerticalLine,
+        //所有元素的基础操作
+        CanvasBasicsEditWidget(layoutController),
+      ];
+    } else if (isShapeProperty) {
+      widgetList = [
+        ShapePropertyWidget(canvasDelegate),
+      ];
+    } else {
+      widgetList = [];
+    }
+
+    return widgetList
         .scroll()!
         .container(color: const Color(0xFFFFFFFF))
         .matchParent(matchHeight: false);
@@ -178,7 +201,7 @@ class CanvasDesignBasicsLayoutWidget extends StatelessWidget {
   /// 核心对象
   final CanvasDesignLayoutController? layoutController;
 
-  const CanvasDesignBasicsLayoutWidget({super.key, this.layoutController});
+  const CanvasDesignBasicsLayoutWidget(this.layoutController, {super.key});
 
   @override
   Widget build(BuildContext context) {

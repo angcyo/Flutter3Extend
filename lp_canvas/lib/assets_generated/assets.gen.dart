@@ -165,6 +165,60 @@ class $AssetsSvgGen {
   /// File path: assets/svg/canvas_ungroup.svg
   String get canvasUngroup => 'assets/svg/canvas_ungroup.svg';
 
+  /// File path: assets/svg/image_crop.svg
+  String get imageCrop => 'assets/svg/image_crop.svg';
+
+  /// File path: assets/svg/image_eraser.svg
+  String get imageEraser => 'assets/svg/image_eraser.svg';
+
+  /// File path: assets/svg/image_filter_2drelief.svg
+  String get imageFilter2drelief => 'assets/svg/image_filter_2drelief.svg';
+
+  /// File path: assets/svg/image_filter_bw.svg
+  String get imageFilterBw => 'assets/svg/image_filter_bw.svg';
+
+  /// File path: assets/svg/image_filter_dithering.svg
+  String get imageFilterDithering => 'assets/svg/image_filter_dithering.svg';
+
+  /// File path: assets/svg/image_filter_gcode.svg
+  String get imageFilterGcode => 'assets/svg/image_filter_gcode.svg';
+
+  /// File path: assets/svg/image_filter_grey.svg
+  String get imageFilterGrey => 'assets/svg/image_filter_grey.svg';
+
+  /// File path: assets/svg/image_filter_print.svg
+  String get imageFilterPrint => 'assets/svg/image_filter_print.svg';
+
+  /// File path: assets/svg/image_filter_seal.svg
+  String get imageFilterSeal => 'assets/svg/image_filter_seal.svg';
+
+  /// File path: assets/svg/image_magic_wand.svg
+  String get imageMagicWand => 'assets/svg/image_magic_wand.svg';
+
+  /// File path: assets/svg/image_outline.svg
+  String get imageOutline => 'assets/svg/image_outline.svg';
+
+  /// File path: assets/svg/image_tracer.svg
+  String get imageTracer => 'assets/svg/image_tracer.svg';
+
+  /// File path: assets/svg/shape_line.svg
+  String get shapeLine => 'assets/svg/shape_line.svg';
+
+  /// File path: assets/svg/shape_love.svg
+  String get shapeLove => 'assets/svg/shape_love.svg';
+
+  /// File path: assets/svg/shape_oval.svg
+  String get shapeOval => 'assets/svg/shape_oval.svg';
+
+  /// File path: assets/svg/shape_pentagram.svg
+  String get shapePentagram => 'assets/svg/shape_pentagram.svg';
+
+  /// File path: assets/svg/shape_polygon.svg
+  String get shapePolygon => 'assets/svg/shape_polygon.svg';
+
+  /// File path: assets/svg/shape_rect.svg
+  String get shapeRect => 'assets/svg/shape_rect.svg';
+
   /// List of all assets
   List<String> get values => [
         addGraffiti,
@@ -203,7 +257,25 @@ class $AssetsSvgGen {
         canvasRasterize,
         canvasRedo,
         canvasUndo,
-        canvasUngroup
+        canvasUngroup,
+        imageCrop,
+        imageEraser,
+        imageFilter2drelief,
+        imageFilterBw,
+        imageFilterDithering,
+        imageFilterGcode,
+        imageFilterGrey,
+        imageFilterPrint,
+        imageFilterSeal,
+        imageMagicWand,
+        imageOutline,
+        imageTracer,
+        shapeLine,
+        shapeLove,
+        shapeOval,
+        shapePentagram,
+        shapePolygon,
+        shapeRect
       ];
 }
 

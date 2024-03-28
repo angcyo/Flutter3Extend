@@ -23,6 +23,12 @@ class LpConstants {
   /// V2: 所有资源存放的基础路径
   static const projectV2BaseUri = "res/";
 
+  /// 添加形状时, 默认的宽高
+  @mm
+  static const defaultShapeWidth = 10.0;
+  @mm
+  static const defaultShapeHeight = 10.0;
+
   //---
 
   //region ---图片滤镜---
