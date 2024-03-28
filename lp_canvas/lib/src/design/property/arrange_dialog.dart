@@ -24,7 +24,7 @@ class ArrangeDialog extends StatelessWidget with DialogMixin {
         canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return buildBottomDialog(context, [
+    return buildBottomColumnDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.arrangeTop),
         text: "上移一层",

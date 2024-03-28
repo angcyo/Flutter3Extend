@@ -24,7 +24,7 @@ class AverageDialog extends StatelessWidget with DialogMixin {
         canvasDelegate?.canvasElementManager.selectedElementCount ?? 0;
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return buildBottomDialog(context, [
+    return buildBottomColumnDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.averageHorizontal),
         text: "水平均分",

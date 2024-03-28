@@ -21,8 +21,8 @@ class ArrangeWidget extends StatelessWidget {
       text: const Text(text),
       onTap: () {
         showDialogWidget(
-          context: context,
-          widget: ArrangeDialog(canvasDelegate),
+          context,
+          ArrangeDialog(canvasDelegate),
           /*barrierColor: null,*/
           type: TranslationType.translation,
         );
@@ -127,8 +127,8 @@ class AlignWidget extends StatelessWidget {
       enable: selectedElementCount > 1,
       onTap: () {
         showDialogWidget(
-          context: context,
-          widget: AlignDialog(canvasDelegate),
+          context,
+          AlignDialog(canvasDelegate),
           /*barrierColor: null,*/
           type: TranslationType.translation,
         );
@@ -155,8 +155,8 @@ class AverageWidget extends StatelessWidget {
       text: const Text(text),
       onTap: () {
         showDialogWidget(
-          context: context,
-          widget: AverageDialog(canvasDelegate),
+          context,
+          AverageDialog(canvasDelegate),
           /*barrierColor: null,*/
           type: TranslationType.translation,
         );

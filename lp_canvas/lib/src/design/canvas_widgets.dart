@@ -146,14 +146,14 @@ class CanvasNumberInputWidget extends StatelessWidget {
         ),
       ).click(() async {
         final value = await showDialogWidget(
-          context: context,
-          type: TranslationType.translation,
-          widget: NumberKeyboardDialog(
+          context,
+          NumberKeyboardDialog(
             number: number,
             minValue: minNumber,
             maxValue: maxNumber,
             hintText: hintTooltip ?? tooltip,
           ),
+          type: TranslationType.translation,
           barrierDismissible: false,
         );
         onNumberInput?.call(value);

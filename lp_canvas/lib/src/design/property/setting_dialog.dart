@@ -29,7 +29,7 @@ class _SettingDialogState extends State<SettingDialog> with TileMixin {
   Widget build(BuildContext context) {
     final canvasDelegate = widget.canvasDelegate;
     final axisUnit = canvasDelegate?.axisUnit;
-    return widget.buildBottomDialog(context, [
+    return widget.buildBottomColumnDialog(context, [
       IconTextTile(
         text: "厘米单位",
         rightWidget: buildSwitchWidget(

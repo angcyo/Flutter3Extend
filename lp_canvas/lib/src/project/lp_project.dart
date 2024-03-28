@@ -17,4 +17,9 @@ class LpProject {
     bean.height = image?.height.toDouble() ?? 0;
     return bean;
   }
+
+  /// 从给定的数据中, 解析出一个元素[ElementPainter]
+  static ElementPainter? parseElementPainter() {
+    return null;
+  }
 }

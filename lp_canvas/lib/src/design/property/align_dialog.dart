@@ -22,7 +22,7 @@ class AlignDialog extends StatelessWidget with DialogMixin {
   Widget build(BuildContext context) {
     final elementSelectComponent =
         canvasDelegate?.canvasElementManager.elementSelectComponent;
-    return buildBottomDialog(context, [
+    return buildBottomColumnDialog(context, [
       IconTextTile(
         iconWidget: lpCanvasSvgWidget(Assets.svg.alignLeft),
         text: "左对齐",

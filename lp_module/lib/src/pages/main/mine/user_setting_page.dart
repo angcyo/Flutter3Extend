@@ -71,8 +71,8 @@ class UserSettingPage extends StatelessWidget
         fillColor: globalConfig.globalTheme.themeWhiteColor,
         onTap: () async {
           final confirm = await showDialogWidget(
-              context: context,
-              widget: IosNormalDialog(
+              context,
+              IosNormalDialog(
                 title: "退出账号",
                 message: "确定要退出当前账号吗?",
                 cancel: "取消",

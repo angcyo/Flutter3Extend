@@ -46,7 +46,8 @@ class CanvasLayerTriggerWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        context.showDialog(LayerDialog(canvasDelegate), useSafeArea: false);
+        context.showWidgetDialog(LayerDialog(canvasDelegate),
+            useSafeArea: false);
       },
     );
   }
@@ -67,7 +68,7 @@ class CanvasSettingTriggerWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        context.showDialog(SettingDialog(canvasDelegate));
+        context.showWidgetDialog(SettingDialog(canvasDelegate));
       },
     );
   }

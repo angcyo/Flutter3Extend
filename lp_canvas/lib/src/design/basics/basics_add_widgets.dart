@@ -29,9 +29,25 @@ class AddPictureWidget extends StatelessWidget {
           imageElement.updatePropertyFromBean();
           imageElement.originImage = image;
           imageElement.paintImage = image;
-          canvasDelegate?.canvasElementManager
-              .addElement(imageElement, selected: true);
-          canvasDelegate?.showRect(elementPainter: imageElement);
+
+          final width = imageElement.elementsBounds?.width ?? 0;
+          const maxWidth = 2000;
+          if (width > maxWidth) {
+            context.showWidgetDialog(TooLargeWarnDialog(([scale]) {
+              if (scale == true) {
+                final sx = maxWidth / width;
+                imageElement.scaleElement(sx: sx, sy: sx);
+              }
+
+              canvasDelegate?.canvasElementManager
+                  .addElement(imageElement, selected: true);
+              canvasDelegate?.showRect(elementPainter: imageElement);
+            }));
+          } else {
+            canvasDelegate?.canvasElementManager
+                .addElement(imageElement, selected: true);
+            canvasDelegate?.showRect(elementPainter: imageElement);
+          }
           //final base64 = await image?.toBase64();
           //debugger();
         });

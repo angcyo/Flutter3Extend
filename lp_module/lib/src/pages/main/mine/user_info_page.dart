@@ -62,8 +62,8 @@ class _UserInfoPageState extends State<UserInfoPage>
         info: userBean?.nickname,
         onTap: () async {
           await showDialogWidget(
-              context: context,
-              widget: SingleInputDialog(
+              context,
+              SingleInputDialog(
                 title: "修改昵称",
                 hintText: "请输入昵称",
                 text: userBean?.nickname,
@@ -85,19 +85,20 @@ class _UserInfoPageState extends State<UserInfoPage>
         info: region,
         onTap: () async {
           await showDialogWidget(
-              context: context,
-              type: TranslationType.translationFade,
-              widget: SingleInputDialog(
-                title: "修改地区",
-                hintText: "请输入地区",
-                text: region,
-                alignment: Alignment.bottomCenter,
-                useIcon: true,
-                onSaveTap: (text) async {
-                  l.i(text);
-                  return false;
-                },
-              ));
+            context,
+            SingleInputDialog(
+              title: "修改地区",
+              hintText: "请输入地区",
+              text: region,
+              alignment: Alignment.bottomCenter,
+              useIcon: true,
+              onSaveTap: (text) async {
+                l.i(text);
+                return false;
+              },
+            ),
+            type: TranslationType.translationFade,
+          );
         },
       ).rItemTile(),
     ];
