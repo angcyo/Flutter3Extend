@@ -31,51 +31,112 @@ class _SettingDialogState extends State<SettingDialog> with TileMixin {
     final axisUnit = canvasDelegate?.axisUnit;
     return widget.buildBottomDialog(context, [
       IconTextTile(
-        text: "Dp单位",
-        rightWidget:
-            buildSwitchWidget(context, axisUnit is DpUnit, onChanged: (value) {
-          if (value) {
-            canvasDelegate?.axisUnit = const DpUnit();
-            updateState();
-          }
-        }),
-        //enable: selectedElementCount == 1,
-        onTap: () {
-          /*canvasDelegate?.canvasElementManager
-              .showPropertyLayoutWidget(elementSelectComponent);*/
-          widget.closeDialogIf(context, widget.closeAfterTap);
-        },
-      ),
-      IconTextTile(
         text: "厘米单位",
-        rightWidget:
-            buildSwitchWidget(context, axisUnit is MmUnit, onChanged: (value) {
-          if (value) {
-            canvasDelegate?.axisUnit = const MmUnit();
-            updateState();
-          }
-        }),
+        rightWidget: buildSwitchWidget(
+          context,
+          axisUnit is MmUnit,
+          onChanged: (value) {
+            if (value) {
+              canvasDelegate?.axisUnit = const MmUnit();
+              updateState();
+            }
+          },
+        ),
         onTap: () {
-          /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
           widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
       IconTextTile(
         text: "英寸单位",
-        rightWidget: buildSwitchWidget(context, axisUnit is InchUnit,
-            onChanged: (value) {
-          if (value) {
-            canvasDelegate?.axisUnit = const InchUnit();
-            updateState();
-          }
-        }),
+        rightWidget: buildSwitchWidget(
+          context,
+          axisUnit is InchUnit,
+          onChanged: (value) {
+            if (value) {
+              canvasDelegate?.axisUnit = const InchUnit();
+              updateState();
+            }
+          },
+        ),
         onTap: () {
-          /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
           widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
       IconTextTile(
-        text: "test",
+        text: "像素单位",
+        rightWidget: buildSwitchWidget(
+          context,
+          axisUnit is PixelUnit,
+          onChanged: (value) {
+            if (value) {
+              canvasDelegate?.axisUnit = const PixelUnit();
+              updateState();
+            }
+          },
+        ),
+        onTap: () {
+          widget.closeDialogIf(context, widget.closeAfterTap);
+        },
+      ),
+      IconTextTile(
+        text: "Dp单位",
+        rightWidget: buildSwitchWidget(
+          context,
+          axisUnit is DpUnit,
+          onChanged: (value) {
+            if (value) {
+              canvasDelegate?.axisUnit = const DpUnit();
+              updateState();
+            }
+          },
+        ),
+        onTap: () {
+          widget.closeDialogIf(context, widget.closeAfterTap);
+        },
+      ),
+      IconTextTile(
+        text: "Pt单位",
+        rightWidget: buildSwitchWidget(
+          context,
+          axisUnit is PtUnit,
+          onChanged: (value) {
+            if (value) {
+              canvasDelegate?.axisUnit = const PtUnit();
+              updateState();
+            }
+          },
+        ),
+        onTap: () {
+          widget.closeDialogIf(context, widget.closeAfterTap);
+        },
+      ),
+      IconTextTile(
+        text: "网格",
+        rightWidget: buildSwitchWidget(
+          context,
+          canvasDelegate?.canvasPaintManager.axisManager.showGrid == true,
+          onChanged: (value) {
+            canvasDelegate?.canvasPaintManager.axisManager.showGrid = value;
+            updateState();
+          },
+        ),
+        onTap: () {
+          widget.closeDialogIf(context, widget.closeAfterTap);
+        },
+      ),
+      IconTextTile(
+        text: "智能指南",
+        rightWidget: buildSwitchWidget(
+          context,
+          false,
+          onChanged: (value) {},
+        ),
+        onTap: () {
+          widget.closeDialogIf(context, widget.closeAfterTap);
+        },
+      ),
+      IconTextTile(
+        text: "...",
         onTap: () {
           /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
           widget.closeDialogIf(context, widget.closeAfterTap);
