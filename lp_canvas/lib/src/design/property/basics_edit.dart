@@ -24,6 +24,9 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         canvasDelegate?.canvasElementManager.selectedElement;
     final elementProperty = selectedElement?.paintProperty;
 
+    final isSelectedElement =
+        canvasDelegate?.canvasElementManager.isSelectedElement == true;
+
     @dp
     final selectBounds = canvasElementControlManager?.selectBounds;
 
@@ -168,6 +171,7 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         icon: lpCanvasSvgWidget(Assets.svg.canvasFlipHorizontal),
         tooltip: "水平",
         text: const Text("水平"),
+        enable: isSelectedElement,
         onTap: () {
           canvasElementControlManager?.flipElementWithScale(
             elementSelectComponent,
@@ -179,6 +183,7 @@ class CanvasBasicsEditWidget extends StatelessWidget {
         icon: lpCanvasSvgWidget(Assets.svg.canvasFlipVertical),
         tooltip: "垂直",
         text: const Text("垂直"),
+        enable: isSelectedElement,
         onTap: () {
           canvasElementControlManager?.flipElementWithScale(
             elementSelectComponent,

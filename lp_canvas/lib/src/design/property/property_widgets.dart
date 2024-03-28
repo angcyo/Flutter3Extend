@@ -17,6 +17,7 @@ class ArrangeWidget extends StatelessWidget {
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.canvasArrange),
       tooltip: text,
+      enable: canvasDelegate?.canvasElementManager.isSelectedElement == true,
       text: const Text(text),
       onTap: () {
         showDialogWidget(
@@ -43,6 +44,7 @@ class RasterizeWidget extends StatelessWidget {
       icon: lpCanvasSvgWidget(Assets.svg.canvasRasterize),
       tooltip: text,
       text: const Text(text),
+      enable: canvasDelegate?.canvasElementManager.isSelectedElement == true,
       onTap: () async {
         final elementSelectComponent =
             canvasDelegate?.canvasElementManager.elementSelectComponent;
