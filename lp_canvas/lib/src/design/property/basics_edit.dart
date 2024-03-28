@@ -211,6 +211,67 @@ class CanvasGroupEditWidget extends StatelessWidget {
       canvasDesignVerticalLine,
       AlignWidget(canvasDelegate),
       AverageWidget(canvasDelegate),
+      canvasDesignVerticalLine,
+    ].row(mainAxisSize: MainAxisSize.max)!;
+  }
+}
+
+/// 图片属性编辑
+class CanvasPictureEditWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDesignLayoutController? layoutController;
+
+  const CanvasPictureEditWidget(this.layoutController, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final canvasDelegate = layoutController?.canvasDelegate;
+    return [
+      ImageFilterBw(canvasDelegate),
+      ImageFilterDithering(canvasDelegate),
+      ImageFilterGCode(canvasDelegate),
+      ImageFilterPrint(canvasDelegate),
+      ImageFilterSeal(canvasDelegate),
+      ImageFilterGrey(canvasDelegate),
+      ImageFilter2DRelief(canvasDelegate),
+      canvasDesignVerticalLine,
+      ImageMagicWand(canvasDelegate),
+      ImageOutline(canvasDelegate),
+      ImageTracer(canvasDelegate),
+      ImageCrop(canvasDelegate),
+      canvasDesignVerticalLine,
+    ].row(mainAxisSize: MainAxisSize.max)!;
+  }
+}
+
+/// 矢量属性编辑
+class CanvasPathEditWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDesignLayoutController? layoutController;
+
+  const CanvasPathEditWidget(this.layoutController, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final canvasDelegate = layoutController?.canvasDelegate;
+    return [
+      ImageMagicWand(canvasDelegate),
+    ].row(mainAxisSize: MainAxisSize.max)!;
+  }
+}
+
+/// 文本属性编辑
+class CanvasTextEditWidget extends StatelessWidget {
+  /// 核心对象
+  final CanvasDesignLayoutController? layoutController;
+
+  const CanvasTextEditWidget(this.layoutController, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final canvasDelegate = layoutController?.canvasDelegate;
+    return [
+      ImageMagicWand(canvasDelegate),
     ].row(mainAxisSize: MainAxisSize.max)!;
   }
 }

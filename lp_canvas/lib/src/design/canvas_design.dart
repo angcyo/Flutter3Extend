@@ -10,12 +10,15 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter3_app/flutter3_app.dart';
 import 'package:flutter3_canvas/flutter3_canvas.dart';
+import 'package:lp_canvas/src/project/element/lp_path_element.dart';
 
 import '../../assets_generated/assets.gen.dart';
 import '../../lp_canvas.dart';
 import '../project/element/lp_image_element.dart';
+import '../project/element/lp_text_element.dart';
 import '../project/too_large_warn_dialog.dart';
 import 'property/layer_dialog.dart';
+import 'property/picture_edit.dart';
 import 'property/setting_dialog.dart';
 
 part 'basics/basics_add_widgets.dart';
@@ -176,8 +179,12 @@ class CanvasDesignPropertyLayoutWidget extends StatelessWidget {
         if (isSelectedGroupElement)
           //group元素
           CanvasGroupEditWidget(layoutController),
-        //竖线
-        canvasDesignVerticalLine,
+        if (selectedElement is LpImageElement)
+          CanvasPictureEditWidget(layoutController),
+        if (selectedElement is LpPathElement)
+          CanvasPathEditWidget(layoutController),
+        if (selectedElement is LpTextElement)
+          CanvasTextEditWidget(layoutController),
         //所有元素的基础操作
         CanvasBasicsEditWidget(layoutController),
       ];

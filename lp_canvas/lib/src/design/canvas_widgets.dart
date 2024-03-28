@@ -45,6 +45,9 @@ class CanvasIconWidget extends StatelessWidget {
   /// 是否选中
   final bool isSelected;
 
+  /// 一直显示的背景装饰
+  final Decoration? decoration;
+
   const CanvasIconWidget({
     super.key,
     this.canvasDelegate,
@@ -55,6 +58,7 @@ class CanvasIconWidget extends StatelessWidget {
     this.isSelected = false,
     this.color = Colors.black87,
     this.disableColor = Colors.black26,
+    this.decoration,
     this.onTap,
     this.enable = true,
     this.tipAlignment = Alignment.topRight,
@@ -75,6 +79,7 @@ class CanvasIconWidget extends StatelessWidget {
       padding: padding,
       onTap: onTap,
       tooltip: tooltip,
+      decoration: decoration,
       pressedDecoration: lineaGradientDecoration(
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,
