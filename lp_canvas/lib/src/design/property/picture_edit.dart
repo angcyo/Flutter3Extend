@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter3_canvas/flutter3_canvas.dart';
+import 'package:lp_canvas/src/project/element/lp_element.dart';
 
 import '../../../assets_generated/assets.gen.dart';
 import '../../../lp_canvas.dart';
@@ -17,9 +18,13 @@ class ImageFilterBw extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterBw),
       tooltip: "黑白画",
+      showCheckedTip: imageFilter == LpConstants.imageFilterBlackWhite,
       text: const Text("黑白画"),
       onTap: () {},
     );
@@ -34,8 +39,12 @@ class ImageFilterDithering extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterDithering),
+      showCheckedTip: imageFilter == LpConstants.imageFilterDithering,
       tooltip: "抖动",
       text: const Text("抖动"),
       onTap: () {},
@@ -51,8 +60,12 @@ class ImageFilterGCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterGcode),
+      showCheckedTip: imageFilter == LpConstants.imageFilterGCode,
       tooltip: "GCode",
       text: const Text("GCode"),
       onTap: () {},
@@ -68,8 +81,12 @@ class ImageFilterPrint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterPrint),
+      showCheckedTip: imageFilter == LpConstants.imageFilterPrint,
       tooltip: "版画",
       text: const Text("版画"),
       onTap: () {},
@@ -85,10 +102,14 @@ class ImageFilterSeal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterSeal),
-      tooltip: "版画",
-      text: const Text("黑白画"),
+      showCheckedTip: imageFilter == LpConstants.imageFilterSeal,
+      tooltip: "印章",
+      text: const Text("印章"),
       onTap: () {},
     );
   }
@@ -102,8 +123,12 @@ class ImageFilterGrey extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilterGrey),
+      showCheckedTip: imageFilter == LpConstants.imageFilterGrey,
       tooltip: "灰度",
       text: const Text("灰度"),
       onTap: () {},
@@ -119,8 +144,12 @@ class ImageFilter2DRelief extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedElement =
+        canvasDelegate?.canvasElementManager.selectedElement;
+    final imageFilter = selectedElement?.elementBean?.imageFilter;
     return CanvasIconWidget(
       icon: lpCanvasSvgWidget(Assets.svg.imageFilter2drelief),
+      showCheckedTip: imageFilter == LpConstants.imageFilterRelief,
       tooltip: "2D浮雕",
       text: const Text("2D浮雕"),
       onTap: () {},

@@ -48,6 +48,9 @@ class CanvasIconWidget extends StatelessWidget {
   /// 一直显示的背景装饰
   final Decoration? decoration;
 
+  /// 是否显示选中提示, 间接修改[decoration]
+  final bool showCheckedTip;
+
   const CanvasIconWidget({
     super.key,
     this.canvasDelegate,
@@ -61,11 +64,13 @@ class CanvasIconWidget extends StatelessWidget {
     this.decoration,
     this.onTap,
     this.enable = true,
+    this.showCheckedTip = false,
     this.tipAlignment = Alignment.topRight,
   });
 
   @override
   Widget build(BuildContext context) {
+    final globalTheme = GlobalTheme.of(context);
     const padding = kCanvasItemPadding;
     const margin = kCanvasItemMargin;
     return IconStateWidget(
@@ -79,7 +84,18 @@ class CanvasIconWidget extends StatelessWidget {
       padding: padding,
       onTap: onTap,
       tooltip: tooltip,
-      decoration: decoration,
+      decoration: decoration ??
+          (showCheckedTip
+              ? PaintDecoration(
+                  (canvas, size) {
+                    canvas.drawCircle(
+                      size.center(Offset.zero),
+                      10,
+                      Paint()..color = globalTheme.accentColor.withOpacity(0.3),
+                    );
+                  },
+                )
+              : null),
       pressedDecoration: lineaGradientDecoration(
         listOf(Colors.blueAccent, Colors.greenAccent),
         borderRadius: kCanvasIcoItemRadiusSize,

@@ -52,3 +52,8 @@ mixin LpElementMixin on ElementPainter {
       ..skewY = paintProperty?.skewY.jd;
   }
 }
+
+extension LpElementEx on ElementPainter {
+  /// 获取元素的数据结构
+  ElementBean? get elementBean => (this as LpElementMixin?)?.elementBean;
+}

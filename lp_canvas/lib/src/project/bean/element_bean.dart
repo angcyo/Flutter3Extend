@@ -286,7 +286,7 @@ class ElementBean {
   /// [LpConstants.imageFilterGCode]
   ///
   ///
-  int imageFilter = LpConstants.imageFilterGrey;
+  int imageFilter = LpConstants.imageFilterDithering;
 
   /// 对比度
   double contrast = 0;
