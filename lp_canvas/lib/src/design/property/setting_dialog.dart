@@ -7,7 +7,7 @@ import 'package:flutter3_canvas/flutter3_canvas.dart';
 /// @date 2024/03/27
 ///
 /// 画布设置对话框
-class SettingDialog extends StatefulWidget {
+class SettingDialog extends StatefulWidget with DialogMixin {
   /// 核心对象
   final CanvasDelegate? canvasDelegate;
 
@@ -24,13 +24,12 @@ class SettingDialog extends StatefulWidget {
   State<SettingDialog> createState() => _SettingDialogState();
 }
 
-class _SettingDialogState extends State<SettingDialog>
-    with DialogMixin, TileMixin {
+class _SettingDialogState extends State<SettingDialog> with TileMixin {
   @override
   Widget build(BuildContext context) {
     final canvasDelegate = widget.canvasDelegate;
     final axisUnit = canvasDelegate?.axisUnit;
-    return buildBottomDialog(context, [
+    return widget.buildBottomDialog(context, [
       IconTextTile(
         text: "Dp单位",
         rightWidget:
@@ -44,7 +43,7 @@ class _SettingDialogState extends State<SettingDialog>
         onTap: () {
           /*canvasDelegate?.canvasElementManager
               .showPropertyLayoutWidget(elementSelectComponent);*/
-          closeDialogIf(context, widget.closeAfterTap);
+          widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
       IconTextTile(
@@ -58,7 +57,7 @@ class _SettingDialogState extends State<SettingDialog>
         }),
         onTap: () {
           /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
-          closeDialogIf(context, widget.closeAfterTap);
+          widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
       IconTextTile(
@@ -72,14 +71,14 @@ class _SettingDialogState extends State<SettingDialog>
         }),
         onTap: () {
           /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
-          closeDialogIf(context, widget.closeAfterTap);
+          widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
       IconTextTile(
         text: "test",
         onTap: () {
           /*canvasDelegate?.canvasElementManager.showCanvasPropertyLayoutWidget();*/
-          closeDialogIf(context, widget.closeAfterTap);
+          widget.closeDialogIf(context, widget.closeAfterTap);
         },
       ),
     ]);
