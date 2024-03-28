@@ -186,7 +186,9 @@ class CanvasDesignPropertyLayoutWidget extends StatelessWidget {
         ShapePropertyWidget(canvasDelegate),
       ];
     } else {
-      widgetList = [];
+      widgetList = [
+        CanvasBasicsEditWidget(layoutController),
+      ];
     }
 
     return widgetList

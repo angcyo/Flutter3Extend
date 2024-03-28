@@ -103,7 +103,10 @@ class LpPathElement extends PathElementPainter with LpElementMixin {
   @override
   void onPaintingSelf(Canvas canvas, PaintMeta paintMeta) {
     //debugger();
-    paintPath ??= createPathFromBean(elementBean);
+    paintPath ??= createPathFromBean(elementBean)?.moveToZero(
+      width: paintProperty?.width,
+      height: paintProperty?.height,
+    );
     super.onPaintingSelf(canvas, paintMeta);
   }
 }

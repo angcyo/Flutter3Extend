@@ -189,6 +189,7 @@ class ShapePropertyWidget extends StatelessWidget {
           elementManager?.addElement(
             LpProject.createShapeElementPainter(LpConstants.dataTypeLine),
             selected: true,
+            showRect: true,
           );
         },
       ),
@@ -200,6 +201,7 @@ class ShapePropertyWidget extends StatelessWidget {
           elementManager?.addElement(
             LpProject.createShapeElementPainter(LpConstants.dataTypeOval),
             selected: true,
+            showRect: true,
           );
         },
       ),
@@ -211,6 +213,7 @@ class ShapePropertyWidget extends StatelessWidget {
           elementManager?.addElement(
             LpProject.createShapeElementPainter(LpConstants.dataTypeRect),
             selected: true,
+            showRect: true,
           );
         },
       ),
@@ -222,6 +225,7 @@ class ShapePropertyWidget extends StatelessWidget {
           elementManager?.addElement(
             LpProject.createShapeElementPainter(LpConstants.dataTypePolygon),
             selected: true,
+            showRect: true,
           );
         },
       ),
@@ -234,6 +238,7 @@ class ShapePropertyWidget extends StatelessWidget {
             LpProject.createShapeElementPainter(LpConstants.dataTypePentagram,
                 side: 5),
             selected: true,
+            showRect: true,
           );
         },
       ),
@@ -245,6 +250,7 @@ class ShapePropertyWidget extends StatelessWidget {
           elementManager?.addElement(
             LpProject.createShapeElementPainter(LpConstants.dataTypeLove),
             selected: true,
+            showRect: true,
           );
         },
       ),
