@@ -46,8 +46,7 @@ class CanvasLayerTriggerWidget extends StatelessWidget {
       tooltip: text,
       text: const Text(text),
       onTap: () {
-        //widget.canvasDelegate?.undo();
-        toastInfo(text);
+        context.showDialog(LayerDialog(canvasDelegate), useSafeArea: false);
       },
     );
   }
